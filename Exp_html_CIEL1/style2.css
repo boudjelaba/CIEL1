@@ -1,0 +1,266 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  padding: 10px;
+  background: #f1f1f1;
+}
+
+/* En-tête : titre */
+.header {
+  padding: 30px;
+  text-align: center;
+  background: white;
+}
+
+.header h1 {
+  font-size: 50px;
+}
+
+/* Style de la barre de navigation supérieure */
+.topnav {
+  overflow: hidden;
+  background-color: #37474f;
+}
+
+/* Style des liens de la barre */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  margin-right: 5px;
+  margin-right: 5px;
+}
+
+/* Changer la couleur au survol */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+  transform: scale(1.1);
+  /*padding-top: 1.25rem;*/
+  transition: all 250ms ease-in;
+}
+
+/*+++++++++++++++++*/
+.active {
+  background-color: #78909c;
+}
+/*+++++++++++++++++*/
+
+/* Créer deux colonnes inégales qui flottent l'une à côté de l'autre */
+/* Colonne de gauche */
+.leftcolumn {   
+  float: left;
+  width: 75%;
+}
+
+/* Colonne de droite */
+.rightcolumn {
+  float: left;
+  width: 24%;
+  background-color: #f1f1f1;
+  padding-left: 20px;
+}
+
+/* Container conteneur */
+.conteneur {
+  background-color: lightblue;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Image */
+.img{
+  display: inline-block;
+  margin: auto;
+}
+
+/* Ajouter un encadré pour les articles */
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.coord {
+  margin: auto;
+  text-align: left;
+}
+.coord li {
+  display: inline-block;
+  margin: 0.5em;
+  position: relative;
+  font-size: 1.25em;
+}
+
+/* Effacer les flottants après les colonnes */
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Bas de page */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #24262b;
+  margin-top: 20px;
+}
+
+.footer h2, h4 {
+  color: white;
+}
+
+/* Responsive layout - lorsque l'écran fait moins 
+  de 672 px de large, empiler les deux colonnes 
+  l'une sur l'autre plutôt que l'une à côté de l'autre. */
+@media screen and (max-width: 672px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+
+/* Responsive layout - lorsque l'écran fait moins 
+de 400 px de large, empiler les liens de navigation 
+les uns sur les autres plutôt que les uns à côté 
+des autres. */
+@media screen and (max-width: 400px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}
+
+
+/*********** Réseaux sociaux *************/
+
+.social-container {
+  width: 400px;
+  margin: auto;
+  text-align: center;
+}
+
+.social-icons {
+  padding: 0;
+  list-style: none;
+  margin: .5em;
+}
+.social-icons li {
+  display: inline-block;
+  margin: 0.15em;
+  position: relative;
+  font-size: 1.2em;
+}
+.social-icons i {
+  color: #fff;
+  position: absolute;
+  top: 21px;
+  left: 21px;
+  transition: all 265ms ease-out;
+}
+.social-icons a {
+  display: inline-block;
+}
+.social-icons a:before {
+  transform: scale(1);
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
+  content: " ";
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  display: block;
+}
+.social-icons a:hover:before {
+  transform: scale(0);
+  transition: all 265ms ease-in;
+}
+.social-icons a:hover i {
+  transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+  color: #24262b;
+  background-color: #ffffff;;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 265ms ease-in;
+}
+
+
+/*** ++++++++++++++++++++++++ ***/
+/*** ++++++++++++++++++++++++ ***/
+
+
+
+.theader {
+  background-color: #327a81;
+  color: white;
+  font-size: 1.5em;
+  padding: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.circular_image{
+  display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 60px;
+  height: 60px;
+  vertical-align:middle;
+  margin-left: auto;
+  margin-right: auto;
+}
+.circular_image img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+}
+
+.table-users {
+  border: 1px solid #327a81;
+  border-radius: 10px;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+  max-width: calc(100% - 2em);
+  margin: 1em auto;
+  overflow: hidden;
+  width: 800px;
+}
+
+table {
+  width: 100%;
+}
+table td, table th {
+  color: #2b686e;
+  padding: 10px;
+}
+table td {
+  text-align: center;
+  vertical-align: middle;
+}
+table td:last-child {
+  font-size: 0.95em;
+  line-height: 1.4;
+  text-align: left;
+}
+table th {
+  background-color: #daeff1;
+  font-weight: 300;
+}
+table tr:nth-child(2n) {
+  background-color: white;
+}
+table tr:nth-child(2n+1) {
+  background-color: #edf7f8;
+}
+
