@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>PHP - Formulaires</title>
+  <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Open+Sans:400,700,800" rel="stylesheet">
+  <link rel='stylesheet' href='https://s3-us-west-2.amazonaws.com/s.cdpn.io/614007/boilerplateStyles.css'>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<main>
+	<section>
+		<div class="placeHolder_img" style="margin:-150px auto;width: 600px;"></div>
+		<br>
+		<h1>Les formulaires - PHP et BDD</h1>
+		<div class="h1-divider"></div>
+		<p class="intro">
+			Les formulaires HTML permettent à l'utilisateur d'envoyer des données au site web. La plupart du temps, ces données sont envoyées à des serveurs web mais la page peut aussi les intercepter et les utiliser elle-même.
+			<br>Un formulaire est composé d'un ou plusieurs champs (zone de texte, boutons …). En général, ces champs sont associés à un libellé qui décrit leur rôle afin d’informer l'utilisateur sur ce qu'il convient d'entrer dans le formulaire. Les données collectées par le formulaire sont envoyées vers un serveur web.
+		</p>
+
+	<div class="form">
+	  <div class="title">BTS CIEL - IR</div>
+	  <div class="subtitle">Création de compte</div>
+	  <div class="input-container ic1">
+	    <input id="nom" class="input" type="text" placeholder=" " />
+	    <div class="cut"></div>
+	    <label for="nom" class="placeholder">Nom</label>
+	  </div>
+	  <div class="input-container ic2">
+	    <input id="prenom" class="input" type="text" placeholder=" " />
+	    <div class="cut"></div>
+	    <label for="prenom" class="placeholder">Prénom</label>
+	  </div>
+	  <div class="input-container ic2">
+	    <input id="mail" class="input" type="text" placeholder=" " />
+	    <div class="cut cut-short"></div>
+	    <label for="mail" class="placeholder">Mail</label>
+	  </div>
+	  <button type="text" class="submit">Valider</button>
+	</div>
+
+		<article>
+			<br><br>
+			<h3>Les éléments clés d'un formulaire HTML</h3>
+			<ul>
+				<li>La balise <em style="font-family:courier;">form</em></li>
+				<li>La balise <em style="font-family:courier;">input</em></li>
+				<li>La balise <em style="font-family:courier;">label</em></li>
+				<li>La balise <em style="font-family:courier;">button</em></li>
+			</ul>
+
+			<form action="formulaire.php" method="post">
+				<div class="CIEL">
+					<label for="dprenom">label </label>
+					<input type="text" id="dprenom" name="dprenom" placeholder="input">
+				</div>
+				<div class="CIEL" id="dsubmit">
+					<button type="submit">button</button>
+				</div>
+			</form>
+
+			<h4>Form</h4>
+			C'est la balise qui permet de déclarer le formulaire dans le code HTML. Le contenu du formulaire devra donc être situé entre &lt;form&gt; et &lt;/form&gt;.<br>
+			Au sein de la balise &lt;form&gt;, il faut ajouter deux attributs : «method» pour le protocole qui permet d'envoyer les données au serveur et «action» pour indiquer l'URL du programme ou du script pour le traitement des données recueillies.
+			<pre>
+				<code id="htmlViewer" style="color:rgb(248, 248, 242); font-weight:400;background-color:rgb(43, 43, 43);background:rgb(43, 43, 43);display:block;padding: .5em;"><span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">form</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">action</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;verif-formulaire.php&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">method</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;post&quot;</span>&gt;</span>…<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">form</span>&gt;</span></code>
+			</pre>
+
+			<ul>
+				<li>L'attribut "action" définit l'emplacement (Lien) où doivent être envoyées les données collectées par le formulaire.
+				</li>
+				<li>L'attribut "method" définit la méthode HTTP utilisée pour envoyer les données (« get » ou « post »).
+				</li>
+			</ul>
+
+			<h4>Input</h4>
+			Il s'agit des champs de saisie au sein du formulaire. Il est possible de personnaliser le type de champ en ajoutant un attribut «type» :
+			<ul>
+				<li>Text : c'est une zone de texte classique.</li>
+				<li>Password : les caractères saisis sont masqués.</li>
+				<li>Check : liste de cases à cocher avec possibilité de choix multiples.</li>
+				<li>Radio : bouton radio pour un choix unique.
+				</li>
+			</ul>
+			D'autres attributs peuvent être associés à la balise «input» :
+			<ul>
+				<li>Value : il indique la valeur par défaut du champ.
+				</li>
+				<li>Size : il définit le nombre de caractères du champ.
+				</li>
+				<li>Name : il permet de donner un nom au champ.
+				</li>
+			</ul>
+
+			<h4>Label</h4>
+			L'élément &lt;Label&gt; est lié à chaque champ et donc à chaque &lt;input&gt;. Il permet de définir le type d'informations à saisir (nom, adresse, téléphone, par exemple). Pour un champ dédié au nom de l'utilisateur, il prendra la forme de <pre>
+				<code id="htmlViewer" style="color:rgb(248, 248, 242); font-weight:400;background-color:rgb(43, 43, 43);background:rgb(43, 43, 43);display:block;padding: .5em;">&lt;label <span style="color:rgb(220, 198, 224); font-weight:400;background:rgba(0, 0, 0, 0);">for</span> = <span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;name&quot;</span>&gt;<span class="hljs-title class_">Nom</span> <span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">:&lt;/label&gt;</span></code>
+			</pre>
+
+			<h4>Button</h4>
+			Un formulaire intègre généralement après la saisie un élément &lt;button&gt; qui permet de valider les informations et de les envoyer. L'attribut «type = "submit"» déclenche l'envoi, en l'associant à un attribut &lt;input&gt; qui transformera alors le bouton en élément cliquable.
+			Avec l'attribut «value », du texte peut être affiché sur le bouton, comme «Envoyer» ou «Valider» par exemple. Enfin, l'attribut «reset» offre la possibilité de réinitialiser tous les champs du formulaire.
+
+			<h4>Exemple 1 : Formulaire de données</h4>
+
+			On réalise un formulaire en HTML qui permet de saisir les données (Fichier formulaire.html), puis on écrit un code en PHP pour récupérer et afficher les données saisies (Fichier formuliare.php)
+
+			<h5>Formulaire HTML</h5>
+			<form action="formulaire.php" method="post">
+			<!-- <form action="formulaire2.php" method="post"> -->
+				<div class="CIEL">
+					<label for="prenom">Prénom : </label>
+					<input type="text" id="prenom" name="prenom">
+				</div>
+
+				<div class="CIEL">
+					<label for="mail">Adresse Mail : </label>
+					<input type="email" id="mail" name="mail">
+				</div>
+
+				<div class="CIEL">
+					<label for="age">Age : </label>
+					<input type="number" id="age" name="age">
+				</div>
+
+				<div class="CIEL">
+					<label>Année d'étude</label><br>
+
+					<label for="un">1ère année</label>
+					<input type="radio" id="un" name="annee" value="1">
+
+					<label for="deux">2ème année</label>
+					<input type="radio" id="deux" name="annee" value="2">
+				</div>
+
+				<div class="CIEL">
+					<label for="dep" style="width:210px">Département de résidence :</label>
+					<select id="dep" name="dep">
+						<option value="aveyron">Aveyron</option>
+						<option value="tarn">Tarn</option>
+						<option value="lot">Lot</option>
+						<option value="autre">Autre</option>
+					</select>
+				</div>
+				
+				<div class="CIEL" id="submit">
+					<button type="submit">Envoyer</button>
+				</div>
+			</form>
+
+			<h5>Code HTML : <mark>formulaire.html</mark></h5>
+
+<pre>
+ <code id="htmlViewer" style="color:rgb(248, 248, 242); font-weight:400;background-color:rgb(43, 43, 43);background:rgb(43, 43, 43);display:block;padding: .5em;"><span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">form</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">action</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;formulaire.php&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">method</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;post&quot;</span>&gt;</span>
+	<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">div</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">class</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;CIEL&quot;</span>&gt;</span>
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">for</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;prenom&quot;</span>&gt;</span>Prénom : <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span>&gt;</span>
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">input</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">type</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;text&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">id</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;prenom&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">name</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;prenom&quot;</span>&gt;</span>
+	<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">div</span>&gt;</span>
+
+	<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">div</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">class</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;CIEL&quot;</span>&gt;</span>
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">for</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;mail&quot;</span>&gt;</span>Adresse Mail : <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span>&gt;</span>
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">input</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">type</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;email&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">id</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;mail&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">name</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;mail&quot;</span>&gt;</span>
+	<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">div</span>&gt;</span>
+
+	<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">div</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">class</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;CIEL&quot;</span>&gt;</span>
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">for</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;age&quot;</span>&gt;</span>Age : <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span>&gt;</span>
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">input</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">type</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;number&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">id</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;age&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">name</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;age&quot;</span>&gt;</span>
+	<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">div</span>&gt;</span>
+
+	<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">div</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">class</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;CIEL&quot;</span>&gt;</span>
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span>&gt;</span>Année d&#x27;étude<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span>&gt;</span><span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">br</span>&gt;</span>
+
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">for</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;un&quot;</span>&gt;</span>1ère année<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span>&gt;</span>
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">input</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">type</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;radio&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">id</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;un&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">name</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;annee&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">value</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;1&quot;</span>&gt;</span>
+
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">for</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;deux&quot;</span>&gt;</span>2ème année<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span>&gt;</span>
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">input</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">type</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;radio&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">id</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;deux&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">name</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;annee&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">value</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;2&quot;</span>&gt;</span>
+	<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">div</span>&gt;</span>
+
+	<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">div</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">class</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;CIEL&quot;</span>&gt;</span>
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">for</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;dep&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">style</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;width:210px&quot;</span>&gt;</span>Département de résidence :<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span>&gt;</span>
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">select</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">id</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;dep&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">name</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;dep&quot;</span>&gt;</span>
+			<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">option</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">value</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;aveyron&quot;</span>&gt;</span>Aveyron<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">option</span>&gt;</span>
+			<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">option</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">value</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;tarn&quot;</span>&gt;</span>Tarn<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">option</span>&gt;</span>
+			<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">option</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">value</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;lot&quot;</span>&gt;</span>Lot<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">option</span>&gt;</span>
+			<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">option</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">value</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;autre&quot;</span>&gt;</span>Autre<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">option</span>&gt;</span>
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">select</span>&gt;</span>
+	<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">div</span>&gt;</span>
+	
+	<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">div</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">class</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;CIEL&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">id</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;submit&quot;</span>&gt;</span>
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">button</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">type</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;submit&quot;</span>&gt;</span>Envoyer<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">button</span>&gt;</span>
+	<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">div</span>&gt;</span>
+<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">form</span>&gt;</span></code></pre>
+
+
+
+			<h5>Code PHP : <mark>formulaire.php</mark></h5>
+
+<pre>
+ <code id="htmlViewer" style="color:rgb(248, 248, 242); font-weight:400;background-color:rgb(43, 43, 43);background:rgb(43, 43, 43);display:block;padding: .5em;"><span style="color:rgb(248, 248, 242); font-weight:400;background:rgba(0, 0, 0, 0);"><span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;!DOCTYPE <span style="color:rgb(220, 198, 224); font-weight:400;background:rgba(0, 0, 0, 0);">html</span>&gt;</span>
+<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span class="hljs-name">title</span>&gt;</span>Page de traitement<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;utf-8&quot;</span>&gt;</span>
+<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span class="hljs-name">p</span>&gt;</span>Dans le formulaire précédent, vous avez fourni les
+    informations suivantes :<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+    </span><span style="color:rgb(248, 248, 242); font-weight:400;background:rgba(0, 0, 0, 0);"><span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;?php</span>
+        <span style="color:rgb(220, 198, 224); font-weight:400;background:rgba(0, 0, 0, 0);">echo</span> <span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&#x27;Prénom : &#x27;</span>.<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$_POST</span>[<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;prenom&quot;</span>].<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&#x27;&lt;br&gt;&#x27;</span>;
+        <span style="color:rgb(220, 198, 224); font-weight:400;background:rgba(0, 0, 0, 0);">echo</span> <span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&#x27;Adresse Mail : &#x27;</span> .<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$_POST</span>[<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;mail&quot;</span>].<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&#x27;&lt;br&gt;&#x27;</span>;
+        <span style="color:rgb(220, 198, 224); font-weight:400;background:rgba(0, 0, 0, 0);">echo</span> <span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&#x27;Age : &#x27;</span> .<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$_POST</span>[<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;age&quot;</span>].<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&#x27;&lt;br&gt;&#x27;</span>;
+        <span style="color:rgb(220, 198, 224); font-weight:400;background:rgba(0, 0, 0, 0);">echo</span> <span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&#x27;Année : &#x27;</span> .<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$_POST</span>[<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;annee&quot;</span>].<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&#x27;&lt;br&gt;&#x27;</span>;
+        <span style="color:rgb(220, 198, 224); font-weight:400;background:rgba(0, 0, 0, 0);">echo</span> <span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&#x27;Département : &#x27;</span> .<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$_POST</span>[<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;dep&quot;</span>].<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&#x27;&lt;br&gt;&#x27;</span>;
+    <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">?&gt;</span></span><span style="color:rgb(248, 248, 242); font-weight:400;background:rgba(0, 0, 0, 0);">
+<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span class="hljs-name">html</span>&gt;</span></span></code>
+</pre>
+
+
+
+<h5>Code CSS : <mark>style.css</mark></h5>
+
+<pre>
+ <code id="htmlViewer" style="color:rgb(248, 248, 242); font-weight:400;background-color:rgb(43, 43, 43);background:rgb(43, 43, 43);display:block;padding: .5em;"><span style="color:rgb(220, 198, 224); font-weight:400;background:rgba(0, 0, 0, 0);">form</span> {
+	<span style="color:rgb(212, 208, 171); font-weight:400;background:rgba(0, 0, 0, 0);">/* Centrer le formulaire */</span>
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">margin</span>: <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">0</span> auto;
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">width</span>: <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">430px</span>;<span style="color:rgb(212, 208, 171); font-weight:400;background:rgba(0, 0, 0, 0);">/*410px*/</span>
+	<span style="color:rgb(212, 208, 171); font-weight:400;background:rgba(0, 0, 0, 0);">/* Contour du formulaire (optionnel) */</span>
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">padding</span>: <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">1em</span>;
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">border</span>: <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">1px</span> solid <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">#bbb</span>;
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">border-radius</span>: <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">1em</span>;
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">background-color</span>: lightskyblue;
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">margin-bottom</span>: <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">2em</span>;
+}
+<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">.CIEL</span>{
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">width</span>: <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">100%</span>;
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">margin</span>: <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">1em</span>;
+}
+<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">.ul</span> {
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">list-style</span>: none;
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">padding</span>: <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">0</span>;
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">margin</span>: <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">0</span>;
+}
+
+<span style="color:rgb(220, 198, 224); font-weight:400;background:rgba(0, 0, 0, 0);">form</span> <span style="color:rgb(220, 198, 224); font-weight:400;background:rgba(0, 0, 0, 0);">li</span> + <span style="color:rgb(220, 198, 224); font-weight:400;background:rgba(0, 0, 0, 0);">li</span> {
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">margin-top</span>: <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">1em</span>;
+}
+
+<span style="color:rgb(220, 198, 224); font-weight:400;background:rgba(0, 0, 0, 0);">label</span> {
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">display</span>: inline-block;
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">width</span>: <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">110px</span>;
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">text-align</span>: right;
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">padding-right</span>: <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">0.5em</span>;
+}
+
+<span style="color:rgb(220, 198, 224); font-weight:400;background:rgba(0, 0, 0, 0);">input</span> {
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">font</span>: <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">1em</span> sans-serif;
+	<span style="color:rgb(212, 208, 171); font-weight:400;background:rgba(0, 0, 0, 0);">/* Taille (largeur) des champs */</span>
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">width</span>: <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">250px</span>;
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">box-sizing</span>: border-box;
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">border</span>: <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">1px</span> solid seagreen;
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">padding</span>: <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">3px</span> <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">6px</span>;
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">border-radius</span>: <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">8px</span>;
+}
+
+<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">icon</span> {
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">display</span>: inline-block;
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">width</span>: <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">20px</span>;
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">padding</span>: auto;
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">margin-left</span>: <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">5px</span>;
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">color</span>: <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">#33ab90</span>; <span style="color:rgb(212, 208, 171); font-weight:400;background:rgba(0, 0, 0, 0);">/* #d4e6f1 */</span>
+}
+
+<span style="color:rgb(220, 198, 224); font-weight:400;background:rgba(0, 0, 0, 0);">input</span><span style="color:rgb(248, 248, 242); font-weight:400;background:rgba(0, 0, 0, 0);">:focus</span> {
+	<span style="color:rgb(212, 208, 171); font-weight:400;background:rgba(0, 0, 0, 0);">/* Focus. */</span>
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">border-color</span>: darkred;
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">outline</span>: none;
+}
+
+<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">.button</span> {
+	<span style="color:rgb(212, 208, 171); font-weight:400;background:rgba(0, 0, 0, 0);">/* On aligne le bouton avec les champs texte. */</span>
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">padding-left</span>: <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">135px</span>;
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">padding-top</span>: <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">1em</span>;
+}
+
+<span style="color:rgb(220, 198, 224); font-weight:400;background:rgba(0, 0, 0, 0);">button</span> {
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">margin-left</span>: <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">1em</span>;
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">width</span>: <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">80px</span>;
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">height</span>: <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">36px</span>;
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">background-color</span>: <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">#33a8ab</span>;
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">border-radius</span>: <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">10px</span>;
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">border</span>: none;
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">color</span>: white;
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">font-weight</span>: <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">800</span>;
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">font-size</span>: <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">14px</span>;
+}
+
+<span style="color:rgb(220, 198, 224); font-weight:400;background:rgba(0, 0, 0, 0);">button</span><span style="color:rgb(248, 248, 242); font-weight:400;background:rgba(0, 0, 0, 0);">:hover</span> {
+	<span style="color:rgb(255, 215, 0); font-weight:400;background:rgba(0, 0, 0, 0);">background-color</span>: <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">#33679E</span>;
+}</code>
+</pre>
+
+
+
+
+
+
+Maintenant, on va remplir le formulaire comme suit :
+		<form action="formulaire.php" method="post">
+			<div class="CIEL">
+				<label for="prenom">Prénom : </label>
+				<input type="text" id="prenom" name="prenom" placeholder="Charles">
+			</div>
+
+			<div class="CIEL">
+				<label for="mail">Adresse Mail : </label>
+				<input type="email" id="mail" name="mail" placeholder="lycee@carnus.fr">
+			</div>
+
+			<div class="CIEL">
+				<label for="age">Age : </label>
+				<input type="number" id="age" name="age" placeholder="19">
+			</div>
+
+			<div class="CIEL">
+				<label>Année d'étude</label><br>
+
+				<label for="un">1ère année</label>
+				<input type="radio" id="un" name="annee" value="1" checked>
+
+				<label for="deux">2ème année</label>
+				<input type="radio" id="deux" name="annee" value="2">
+			</div>
+
+			<div class="CIEL">
+				<label for="dep" style="width:210px">Département de résidence :</label>
+				<select id="dep" name="dep">
+					<option value="aveyron">Aveyron</option>
+					<option value="tarn" selected>Tarn</option>
+					<option value="lot">Lot</option>
+					<option value="autre">Autre</option>
+				</select>
+			</div>
+			
+			<div class="CIEL" id="submit">
+				<button type="submit">Envoyer</button>
+			</div>
+		</form>
+
+		Lorsqu'on valide le formulaire (on clique sur le bouton "Envoyer"), le programme "formulaire.php" sera exécuté et affichera :<br><br>
+
+		<form style="background-color:lightgray;">
+				Dans le formulaire précédent, vous avez fourni les informations suivantes :<br>
+
+		    Prénom : Charles<br>
+		    Adresse Mail : lycee@carnus.fr<br>
+		    Age : 19<br>
+		    Année : 1<br>
+		    Département : Tarn<br>
+		</form>
+
+
+			<h4>Exemple 2 : Formulaire d'enregistrement dans une BDD</h4>
+
+			<p>
+				Notre formulaire d’enregistrement (de création de compte) ne contient que 4 champs de texte, chacun ayant une étiquette. Les champs d'entrée pour le nom et le prénom sont des champs de texte sur une seule ligne, le champ pour l'adresse Mail est un champ de texte sur une ligne qui n'accepte que des adresses Mail et enfin le champ pour le mot de passe est un champ de texte sur une ligne.
+				Il suffit d’ajouter un bouton pour permettre à l’utilisateur d’envoyer les données renseignées dans le formulaire.</p>
+
+				<form action="verif-formulaire.php" method="post">
+				  <div class="ul">
+				    <li>
+				      <label for="name">Nom&nbsp;:</label>
+				      <icon id="icon" for="name"><i class="fas fa-user"></i></icon>
+				      <input type="text" id="nom" name="Nom" />
+				    </li>
+				    <li>
+				      <label for="name">Prénom : </label>
+				      <icon id="icon" for="name"><i class="fas fa-user-circle"></i></icon>
+				      <input type="text" id="prenom" name="Prenom" />
+				    </li>
+				    <li>
+				      <label for="name">Mail :</label>
+				      <icon id="icon" for="name"><i class="fa-solid fa-envelope"></i></icon>
+				      <input type="email" id="mail" name="Mail" />
+				    </li>
+				    <li>
+				      <label for="name">Mot de passe :</label>
+				      <icon id="icon" for="name"><i class="fa-solid fa-lock"></i></icon>
+				      <input type="password" id="mdp" name="MDP" />
+				    </li>
+				  </div>
+				  <div class="button">
+				    <button type="submit">Valider</button>
+				  </div>
+				</form>
+
+				<h5>Code HTML : <mark>form.html</mark></h5>
+
+
+<pre>
+ <code id="htmlViewer" style="color:rgb(248, 248, 242); font-weight:400;background-color:rgb(43, 43, 43);background:rgb(43, 43, 43);display:block;padding: .5em;"><span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">form</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">action</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;verif-formulaire.php&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">method</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;post&quot;</span>&gt;</span>
+  <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">ul</span>&gt;</span>
+    <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">li</span>&gt;</span>
+      <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">for</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;name&quot;</span>&gt;</span>Nom<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&amp;nbsp;</span>:<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span>&gt;</span>
+      <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">icon</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">id</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;icon&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">for</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;name&quot;</span>&gt;</span><span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">i</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">class</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;fas fa-user&quot;</span>&gt;</span><span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">i</span>&gt;</span><span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">icon</span>&gt;</span>
+      <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">input</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">type</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;text&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">id</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;nom&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">name</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;Nom&quot;</span> /&gt;</span>
+    <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">li</span>&gt;</span>
+    <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">li</span>&gt;</span>
+      <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">for</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;name&quot;</span>&gt;</span>Prénom : <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span>&gt;</span>
+      <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">icon</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">id</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;icon&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">for</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;name&quot;</span>&gt;</span><span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">i</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">class</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;fas fa-user-circle&quot;</span>&gt;</span><span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">i</span>&gt;</span><span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">icon</span>&gt;</span>
+      <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">input</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">type</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;text&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">id</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;prenom&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">name</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;Prenom&quot;</span> /&gt;</span>
+    <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">li</span>&gt;</span>
+    <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">li</span>&gt;</span>
+      <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">for</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;name&quot;</span>&gt;</span>Mail :<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span>&gt;</span>
+      <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">icon</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">id</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;icon&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">for</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;name&quot;</span>&gt;</span><span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">i</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">class</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;fa-solid fa-envelope&quot;</span>&gt;</span><span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">i</span>&gt;</span><span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">icon</span>&gt;</span>
+      <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">input</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">type</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;email&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">id</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;mail&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">name</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;Mail&quot;</span> /&gt;</span>
+    <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">li</span>&gt;</span>
+    <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">li</span>&gt;</span>
+      <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">for</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;name&quot;</span>&gt;</span>Mot de passe :<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span>&gt;</span>
+      <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">icon</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">id</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;icon&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">for</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;name&quot;</span>&gt;</span><span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">i</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">class</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;fa-solid fa-lock&quot;</span>&gt;</span><span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">i</span>&gt;</span><span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">icon</span>&gt;</span>
+      <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">input</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">type</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;password&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">id</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;mdp&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">name</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;MDP&quot;</span> /&gt;</span>
+    <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">li</span>&gt;</span>
+  <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">ul</span>&gt;</span>
+  <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">div</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">class</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;button&quot;</span>&gt;</span>
+    <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">button</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">type</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;submit&quot;</span>&gt;</span>Valider<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">button</span>&gt;</span>
+  <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">div</span>&gt;</span>
+<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">form</span>&gt;</span></code>
+</pre>
+
+L'attribut "for" sur tous les éléments &lt;label&gt; va lier un libellé à un élément du formulaire. Cet attribut fait référence à l'id de l'élément correspondant (l’attribut "for" de &lt;label&gt; référence l'attribut id du widget correspondant).
+
+L'élément &lt;input&gt;, contient l'attribut type qui définit le comportement de l’élément.
+
+<ul>
+	<li>text — qui est la valeur par défaut de cet attribut et représente un champ de texte basique sur une seule ligne acceptant n'importe quel type de texte.
+	</li>
+	<li>email — qui définit un champ de texte sur une seule ligne n'acceptant que des adresses mail valides. Cette dernière valeur transforme un champ basique en une sorte de champ «intelligent» qui réalise des vérifications sur les données fournies par l'utilisateur.
+	</li>
+</ul>
+
+Le CSS correspondant est le même que celui donné plus haut (fichier <mark>style.css</mark>).
+<br><br>
+
+
+
+Le code suivant permet de vérifier si on arrive à récupérer les données saisies et de les afficher.
+
+
+<h5>Code PHP : <mark>verif-formulaire.php</mark></h5>
+
+<pre>
+ <code id="htmlViewer" style="color:rgb(248, 248, 242); font-weight:400;background-color:rgb(43, 43, 43);background:rgb(43, 43, 43);display:block;padding: .5em;"><span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;?php</span>
+
+<span style="color:rgb(212, 208, 171); font-weight:400;background:rgba(0, 0, 0, 0);">// # Récupération des valeurs saisies par la méthode POST (après avoir appuyé sur le bouton &quot;Valider&quot;)</span>
+<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$nom</span> = <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$_POST</span>[<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;nom&quot;</span>];
+<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$prenom</span> = <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$_POST</span>[<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;prenom&quot;</span>];
+<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$mail</span> = <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$_POST</span>[<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;mail&quot;</span>];
+<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$mdp</span> = <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$_POST</span>[<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;mdp&quot;</span>];
+
+<span style="color:rgb(212, 208, 171); font-weight:400;background:rgba(0, 0, 0, 0);">// # Affichage des valeurs saisies</span>
+<span class="hljs-title function_ invoke__">var_dump</span>(<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$nom</span>,<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$prenom</span>,<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$mail</span>,<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$mdp</span>);
+
+<span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">?&gt;</span></code>
+</pre>
+
+
+<h3>Insertion des données saisies via le formulaire dans la base de données</h3>
+
+Il faut créer tout d'abord, une base de données (CIEL par exemple) et créer au sein de cette BDD une table "etudiants" contenant 5 colonnes.<br>
+
+<table>
+  <tr>
+    <th> <i class="fa-regular fa-key"></i> id</th>
+    <th>nom</th>
+    <th>prenom</th>
+    <th>mail</th>
+    <th>mdp</th>
+  </tr>
+  <tr>
+    <td>int</td>
+    <td>varchar (50)</td>
+    <td>varchar (50)</td>
+    <td>varchar (50)</td>
+    <td>varchar (250)</td>
+  </tr>
+</table>
+
+<br>
+
+Ci-dessous, le nouveau code "verif-formulaire.php" complet qui permet de sauvegarder les données dans la BDD.
+
+<h5>Code HTML : <mark>verif-formulaire.php</mark></h5>
+
+
+<pre>
+ <code id="htmlViewer" style="color:rgb(248, 248, 242); font-weight:400;background-color:rgb(43, 43, 43);background:rgb(43, 43, 43);display:block;padding: .5em;"><span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;?php</span>
+
+<span style="color:rgb(212, 208, 171); font-weight:400;background:rgba(0, 0, 0, 0);">// # Récupération des valeurs saisies par la méthode POST (après avoir appuyé sur le bouton &quot;Valider&quot;)</span>
+<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$nom</span> = <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$_POST</span>[<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;nom&quot;</span>];
+<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$prenom</span> = <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$_POST</span>[<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;prenom&quot;</span>];
+<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$mail</span> = <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$_POST</span>[<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;mail&quot;</span>];
+<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$mdp</span> = <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$_POST</span>[<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;mdp&quot;</span>];
+
+<span style="color:rgb(212, 208, 171); font-weight:400;background:rgba(0, 0, 0, 0);">// # Informations de connexion au serveur BDD</span>
+<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$host</span> = <span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;localhost&quot;</span>;
+<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$dbname</span> = <span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;CIEL&quot;</span>;
+<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$username</span> = <span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;root&quot;</span>;
+<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$password</span> = <span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;&quot;</span>;
+
+<span style="color:rgb(212, 208, 171); font-weight:400;background:rgba(0, 0, 0, 0);">// # Connexion au serveur BDD</span>
+<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$conn</span> = <span class="hljs-title function_ invoke__">mysqli_connect</span>(<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$host</span>,
+                       <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$username</span>,
+                       <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$password</span>,
+                       <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$dbname</span>);
+
+<span style="color:rgb(212, 208, 171); font-weight:400;background:rgba(0, 0, 0, 0);">// # Insertion des données dans la BDD</span>
+<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$sql</span> = <span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;INSERT INTO etudiants (nom, prenom, mail, mdp)
+        VALUES (&#x27;<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">$nom</span>&#x27;, &#x27;<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">$prenom</span>&#x27;, &#x27;<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">$mail</span>&#x27;, &#x27;<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">$mdp</span>&#x27;)&quot;</span>;
+<span class="hljs-title function_ invoke__">mysqli_query</span>(<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$conn</span>, <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$sql</span>);
+
+<span style="color:rgb(220, 198, 224); font-weight:400;background:rgba(0, 0, 0, 0);">echo</span> <span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;&lt;br&gt;Données sauvegardées.&quot;</span>;
+
+<span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">?&gt;</span></code>
+</pre>
+			
+
+
+<h2>Sécurisation et validation de formulaires</h2>
+
+Lorsqu’on crée des formulaires, c’est généralement pour demander aux utilisateurs de nous envoyer des données. Si on ne met pas en place des systèmes de filtre sur le type de données qui peuvent être envoyées pour chaque champ et de vérification ensuite de la qualité des données envoyées, les données récoltées vont alors pouvoir être aberrantes ou même potentiellement dangereuses.<br>
+Deux niveaux de vérifications (dans le navigateur / côté serveur) doivent être implémentés lors de la création de formulaires. En effet, n’utiliser qu’une validation dans le navigateur laisse de sérieuses failles de sécurité dans notre formulaire puisque les utilisateurs malveillants peuvent désactiver ces vérifications. N’effectuer qu’une série de vérifications côté serveur, d’autre part, serait également une très mauvaise idée d’un point de vue expérience utilisateur puisque ces vérifications sont effectuées une fois le formulaire envoyé.
+
+<br><br>
+
+<h3>La validation des données du formulaire dans le navigateur</h3>
+<br>
+Allez sur n'importe quel site avec un formulaire d'inscription et vous remarquerez des retours si vous n'entrez pas les données dans le format attendu. Vous aurez des messages comme :
+
+
+<ul>
+	<li>«Ce champ est obligatoire» (vous ne pouvez pas le laisser vide)</li>
+	<li>«Veuillez entrer votre numéro de téléphone au format xxx-xxxxx» (il attend trois chiffres suivis d'un tiret, suivi de cinq chiffres).</li>
+	<li>«Veuillez entrer une adresse Mail valide» (ce que vous avez saisi ne ressemble pas à une adresse Mail valide).</li>
+	<li>«Votre mot de passe doit comporter entre 8 et 16 caractères et contenir une majuscule, un symbole et un chiffre».</li>
+	<li>...</li>
+</ul>
+
+Si elles sont correctes, les données seront soumises au serveur et (généralement) sauvegardées dans une base de données ; si ce n'est pas le cas, elle émet des messages d'erreur pour expliquer ce qui ne va pas.<br>
+
+L’objectif est de bloquer l’envoi du formulaire si certains champs ne sont pas correctement remplis et de demander aux utilisateurs de remplir correctement les champs invalides.<br>
+
+Le HTML5 propose aujourd’hui des options de validation relativement puissantes et couvrant la majorité des besoins.<br>
+
+La validation des données en HTML va principalement passer par l’ajout d’attributs dans les éléments de formulaire. Nous allons ainsi pouvoir utiliser les attributs suivants :
+<br><br>
+
+
+<table>
+  <tr>
+    <th> Attribut </th>
+    <th> Définition </th>
+  </tr>
+  <tr>
+    <td>size</td>
+    <td>Permet de spécifier le nombre de caractères dans un champ</td>
+  </tr>
+  <tr>
+  	<td>minlength</td>
+  	<td>Permet de spécifier le nombre minimum de caractères dans un champ</td>
+  </tr>
+  <tr>
+  	<td>maxlength</td>
+  	<td>Permet de spécifier le nombre maximum de caractères dans un champ</td>
+  </tr>
+  <tr>
+  	<td>min</td>
+  	<td>Permet de spécifier une valeur minimale pour un champ de type number ou date</td>
+  </tr>
+  <tr>
+  	<td>max</td>
+  	<td>Permet de spécifier une valeur maximale pour un champ de type number ou date</td>
+  </tr>
+  <tr>
+  	<td>step</td>
+  	<td>Permet de définir un multiple de validité pour un champ acceptant des donnés de type nombre ou date. En indiquant step="4" , les nombres valides seront -8, -4, 0, 4, 8, etc.</td>
+  </tr>
+  <tr>
+  	<td>autocomplete</td>
+  	<td>Permet d’activer l’autocomplétion pour un champ : si un utilisateur a déjà rempli un formulaire, des valeurs lui seront proposées automatiquement lorsqu’il va commencer à remplir le champ</td>
+  </tr>
+  <tr>
+  	<td>required</td>
+  	<td>Permet de forcer le remplissage d’un champ. Le formulaire ne pourra pas être envoyé si le champ est vide</td>
+  </tr>
+  <tr>
+  	<td>pattern</td>
+  	<td>Permet de préciser une expression régulière. La valeur du champ devra respecter la contrainte de la regex pour être valide</td>
+  </tr>
+</table>
+
+<br>
+
+Reprenons le formulaire précédent (exemple 1) et ajoutons quelques contraintes sur les données que l’on souhaite recevoir :
+
+<ul>
+	<li>Le prénom est désormais obligatoire et ne doit comporter que des lettres + éventuellement des espaces, tirets ou apostrophes. Sa taille ne doit pas accéder 20 caractères ;</li>
+	<li>Le mail doit avoir au moins 1 caractère de type lettre ou chiffre + le symbole « @ » + à nouveau au moins 1 caractère de type lettre ou chiffre + le symbole « . » + au moins deux caractères de type lettre ou chiffre. Il est également obligatoire ;</li>
+	<li>L’âge doit être un nombre et être compris entre 15 et 35 ans.</li>
+</ul>
+
+
+
+			<form action="formulaire.php" method="post">
+			<!-- <form action="formulaire2.php" method="post"> -->
+				<div class="CIEL">
+					<label for="prenom">Prénom : </label>
+					<input type="text" id="prenom" name="prenom" required pattern="^[A-Za-z '-]+$" maxlength="20">
+				</div>
+
+				<div class="CIEL">
+					<label for="mail">Adresse Mail : </label>
+					<input type="email" id="mail" name="mail" required pattern="^[A-Za-z]+@{1}[A-Za-z]+\.{1}[A-Za-z]{2,}$">
+				</div>
+
+				<div class="CIEL">
+					<label for="age">Age : </label>
+					<input type="number" id="age" name="age" min="15" max="35">
+				</div>
+
+				<div class="CIEL">
+					<label>Année d'étude</label><br>
+
+					<label for="un">1ère année</label>
+					<input type="radio" id="un" name="annee" value="1">
+
+					<label for="deux">2ème année</label>
+					<input type="radio" id="deux" name="annee" value="2">
+				</div>
+
+				<div class="CIEL">
+					<label for="dep" style="width:210px">Département de résidence :</label>
+					<select id="dep" name="dep">
+						<option value="aveyron">Aveyron</option>
+						<option value="tarn">Tarn</option>
+						<option value="lot">Lot</option>
+						<option value="autre">Autre</option>
+					</select>
+				</div>
+				
+				<div class="CIEL" id="submit">
+					<button type="submit">Envoyer</button>
+				</div>
+			</form>
+
+
+
+			On utilise l’attribut required pour nos champs « prenom » et « mail » pour indiquer qu’ils doivent être automatiquement remplis. <br>
+			On utilise l’attribut pattern pour ajouter des contraintes sur la forme des données qui doivent être renseignées pour nos champs prenom et mail en fournissant des règles (regex : expressions régulières) adaptées.<br>
+			Le code modifié est donné ci-dessous : <br>
+
+			<h4>Code : <mark>formulaire.html</mark></h4>
+
+<pre>
+ <code id="htmlViewer" style="color:rgb(248, 248, 242); font-weight:400;background-color:rgb(43, 43, 43);background:rgb(43, 43, 43);display:block;padding: .5em;"><span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">form</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">action</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;formulaire.php&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">method</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;post&quot;</span>&gt;</span>
+	<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">div</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">class</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;CIEL&quot;</span>&gt;</span>
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">for</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;prenom&quot;</span>&gt;</span>Prénom : <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span>&gt;</span>
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">input</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">type</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;text&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">id</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;prenom&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">name</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;prenom&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">required</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">pattern</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;^[A-Za-z &#x27;-]+$&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">maxlength</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;20&quot;</span>&gt;</span>
+	<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">div</span>&gt;</span>
+
+	<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">div</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">class</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;CIEL&quot;</span>&gt;</span>
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">for</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;mail&quot;</span>&gt;</span>Adresse Mail : <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span>&gt;</span>
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">input</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">type</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;email&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">id</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;mail&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">name</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;mail&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">required</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">pattern</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;^[A-Za-z]+@{1}[A-Za-z]+\.{1}[A-Za-z]{2,}$&quot;</span>&gt;</span>
+	<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">div</span>&gt;</span>
+
+	<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">div</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">class</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;CIEL&quot;</span>&gt;</span>
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">for</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;age&quot;</span>&gt;</span>Age : <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span>&gt;</span>
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">input</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">type</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;number&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">id</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;age&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">name</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;age&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">min</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;15&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">max</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;35&quot;</span>&gt;</span>
+	<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">div</span>&gt;</span>
+
+	<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">div</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">class</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;CIEL&quot;</span>&gt;</span>
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span>&gt;</span>Année d&#x27;étude<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span>&gt;</span><span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">br</span>&gt;</span>
+
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">for</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;un&quot;</span>&gt;</span>1ère année<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span>&gt;</span>
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">input</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">type</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;radio&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">id</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;un&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">name</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;annee&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">value</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;1&quot;</span>&gt;</span>
+
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">for</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;deux&quot;</span>&gt;</span>2ème année<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span>&gt;</span>
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">input</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">type</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;radio&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">id</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;deux&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">name</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;annee&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">value</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;2&quot;</span>&gt;</span>
+	<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">div</span>&gt;</span>
+
+	<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">div</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">class</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;CIEL&quot;</span>&gt;</span>
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">for</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;dep&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">style</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;width:210px&quot;</span>&gt;</span>Département de résidence :<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span>&gt;</span>
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">select</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">id</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;dep&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">name</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;dep&quot;</span>&gt;</span>
+			<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">option</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">value</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;aveyron&quot;</span>&gt;</span>Aveyron<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">option</span>&gt;</span>
+			<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">option</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">value</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;tarn&quot;</span>&gt;</span>Tarn<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">option</span>&gt;</span>
+			<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">option</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">value</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;lot&quot;</span>&gt;</span>Lot<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">option</span>&gt;</span>
+			<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">option</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">value</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;autre&quot;</span>&gt;</span>Autre<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">option</span>&gt;</span>
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">select</span>&gt;</span>
+	<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">div</span>&gt;</span>
+	
+	<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">div</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">class</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;CIEL&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">id</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;submit&quot;</span>&gt;</span>
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">button</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">type</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;submit&quot;</span>&gt;</span>Envoyer<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">button</span>&gt;</span>
+	<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">div</span>&gt;</span>
+<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">form</span>&gt;</span></code>
+</pre>	
+
+<br>
+
+
+
+<h3>La validation des données du formulaire sur serveur</h3>
+
+La validation dans le navigateur permet d'éviter une immense majorité de données invalides et donc d’avoir des données à priori exploitables, mais elle n’est pas suffisante contre des utilisateurs malveillants puisque n’importe qui peut neutraliser les attributs HTML ou JavaScript en les désactivant dans le navigateur avant d’envoyer le formulaire.<br><br>
+Une validation côté serveur, en PHP, est nécessaire pour filtrer les données potentiellement dangereuses.<br>
+Le PHP offre différentes options pour sécuriser les formulaires en testant la validité des données envoyées : <br>
+- la fonction htmlspecialchars() permet d’échapper certains caractères spéciaux comme les chevrons « < » et « > » en les transformant en entités HTML. En échappant les chevrons, on se prémunit d’une injection de code JavaScript puisque les balises &lt;script&gt; et &lt;/script&gt; vont être transformées en &&lt;script&gt; et &&lt;/script&gt; et ne vont donc pas être exécutées par le navigateur.<br>
+On peut utiliser d’autres fonctions pour nettoyer les données avant de les stocker comme trim() qui va supprimer les espaces inutiles et stripslashes() qui va supprimer les antislashes que certains hackers pourraient utiliser pour échapper des caractères spéciaux.
+
+<!-- &lt; &gt; -->
+
+<br><br>
+Maintenant, on va créer deux nouveaux codes pour l'exemple 2 : Le premier est le fichier HTML qui contiendra le formulaire et le second est le fichier PHP qui enregistrera les données saisies dans la BDD.
+<br>
+<br>
+
+
+				<form action="verif-formulaire.php" method="post">
+				  <div class="ul">
+				    <li>
+				      <label for="name">Nom&nbsp;:</label>
+				      <icon id="icon" for="name"><i class="fas fa-user"></i></icon>
+				      <input type="text" id="nom" name="Nom" required pattern="^[A-Za-z '-]+$" maxlength="20" />
+				      <!-- <i class="fas fa-user"></i> -->
+				    </li>
+				    <li>
+				      <label for="name">Prénom : </label>
+				      <icon id="icon" for="name"><i class="fas fa-user-circle"></i></icon>
+				      <input type="text" id="prenom" name="Prenom" required pattern="^[A-Za-z '-]+$" maxlength="20" />
+				    </li>
+				    <li>
+				      <label for="name">Mail :</label>
+				      <icon id="icon" for="name"><i class="fa-solid fa-envelope"></i></icon>
+				      <input type="email" id="mail" name="Mail" required pattern="^[A-Za-z]+@{1}[A-Za-z]+\.{1}[A-Za-z]{2,}$" />
+				    </li>
+				    <li>
+				      <label for="name">Mot de passe :</label>
+				      <icon id="icon" for="name"><i class="fa-solid fa-lock"></i></icon>
+				      <input type="password" id="mdp" name="MDP" />
+				    </li>
+				  </div>
+				  <div class="button">
+				    <button type="submit">Valider</button>
+				  </div>
+				</form>
+
+<h4>Code HTML : <mark>s-form.html</mark></h4>
+
+
+<pre>
+ <code id="htmlViewer" style="color:rgb(248, 248, 242); font-weight:400;background-color:rgb(43, 43, 43);background:rgb(43, 43, 43);display:block;padding: .5em;"><span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">form</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">action</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;secu-form.php&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">method</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;post&quot;</span>&gt;</span>
+	<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">div</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">class</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;ul&quot;</span>&gt;</span>
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">li</span>&gt;</span>
+			<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">for</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;name&quot;</span>&gt;</span>Nom<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&amp;nbsp;</span>:<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span>&gt;</span>
+			<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">icon</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">id</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;icon&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">for</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;name&quot;</span>&gt;</span><span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">i</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">class</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;fas fa-user&quot;</span>&gt;</span><span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">i</span>&gt;</span><span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">icon</span>&gt;</span>
+			<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">input</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">type</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;text&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">id</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;nom&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">name</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;Nom&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">required</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">pattern</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;^[A-Za-z &#x27;-]+$&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">maxlength</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;20&quot;</span> /&gt;</span>
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">li</span>&gt;</span>
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">li</span>&gt;</span>
+			<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">for</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;name&quot;</span>&gt;</span>Prénom : <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span>&gt;</span>
+			<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">icon</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">id</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;icon&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">for</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;name&quot;</span>&gt;</span><span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">i</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">class</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;fas fa-user-circle&quot;</span>&gt;</span><span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">i</span>&gt;</span><span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">icon</span>&gt;</span>
+			<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">input</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">type</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;text&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">id</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;prenom&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">name</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;Prenom&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">required</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">pattern</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;^[A-Za-z &#x27;-]+$&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">maxlength</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;20&quot;</span> /&gt;</span>
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">li</span>&gt;</span>
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">li</span>&gt;</span>
+			<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">for</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;name&quot;</span>&gt;</span>Mail :<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span>&gt;</span>
+			<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">icon</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">id</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;icon&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">for</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;name&quot;</span>&gt;</span><span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">i</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">class</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;fa-solid fa-envelope&quot;</span>&gt;</span><span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">i</span>&gt;</span><span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">icon</span>&gt;</span>
+			<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">input</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">type</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;email&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">id</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;mail&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">name</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;Mail&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">required</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">pattern</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;^[A-Za-z]+@{1}[A-Za-z]+\.{1}[A-Za-z]{2,}$&quot;</span> /&gt;</span>
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">li</span>&gt;</span>
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">li</span>&gt;</span>
+			<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">for</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;name&quot;</span>&gt;</span>Mot de passe :<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">label</span>&gt;</span>
+			<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">icon</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">id</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;icon&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">for</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;name&quot;</span>&gt;</span><span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">i</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">class</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;fa-solid fa-lock&quot;</span>&gt;</span><span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">i</span>&gt;</span><span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">icon</span>&gt;</span>
+			<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">input</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">type</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;password&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">id</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;mdp&quot;</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">name</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;MDP&quot;</span> /&gt;</span>
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">li</span>&gt;</span>
+	<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">div</span>&gt;</span>
+	<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">div</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">class</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;button&quot;</span>&gt;</span>
+		<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">button</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">type</span>=<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;submit&quot;</span>&gt;</span>Valider<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">button</span>&gt;</span>
+	<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">div</span>&gt;</span>
+<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;/<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">form</span>&gt;</span></code>
+</pre>
+
+
+<h4>Code PHP : <mark>secu-form.php</mark></h4>
+
+
+<pre>
+ <code id="htmlViewer" style="color:rgb(248, 248, 242); font-weight:400;background-color:rgb(43, 43, 43);background:rgb(43, 43, 43);display:block;padding: .5em;"><span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">&lt;?php</span>
+    <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$serveur</span> = <span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;localhost&quot;</span>;
+    <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$dbname</span> = <span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;CIEL&quot;</span>;
+    <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$user</span> = <span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;root&quot;</span>;
+    <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$pass</span> = <span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;&quot;</span>;
+
+    <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$nom</span> = <span class="hljs-title function_ invoke__">valid_donnees</span>(<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$_POST</span>[<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;nom&quot;</span>]);
+    <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$prenom</span> = <span class="hljs-title function_ invoke__">valid_donnees</span>(<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$_POST</span>[<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;prenom&quot;</span>]);
+    <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$mail</span> = <span class="hljs-title function_ invoke__">valid_donnees</span>(<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$_POST</span>[<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;mail&quot;</span>]);
+    <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$mdp</span> = <span class="hljs-title function_ invoke__">valid_donnees</span>(<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$_POST</span>[<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;mdp&quot;</span>]);
+
+    <span style="color:rgb(248, 248, 242); font-weight:400;background:rgba(0, 0, 0, 0);"><span style="color:rgb(220, 198, 224); font-weight:400;background:rgba(0, 0, 0, 0);">function</span> <span style="color:rgb(0, 224, 224); font-weight:400;background:rgba(0, 0, 0, 0);">valid_donnees</span>(<span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);"><span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$donnees</span></span>)</span>{
+        <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$donnees</span> = <span class="hljs-title function_ invoke__">trim</span>(<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$donnees</span>);
+        <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$donnees</span> = <span class="hljs-title function_ invoke__">stripslashes</span>(<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$donnees</span>);
+        <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$donnees</span> = <span class="hljs-title function_ invoke__">htmlspecialchars</span>(<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$donnees</span>);
+        <span style="color:rgb(220, 198, 224); font-weight:400;background:rgba(0, 0, 0, 0);">return</span> <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$donnees</span>;
+    }
+
+    <span style="color:rgb(212, 208, 171); font-weight:400;background:rgba(0, 0, 0, 0);">/*Si les champs nom, prenom, mail et mdp ne sont pas vides et si les donnees ont bien la forme attendue...*/</span>
+    <span style="color:rgb(220, 198, 224); font-weight:400;background:rgba(0, 0, 0, 0);">if</span> (!<span style="color:rgb(220, 198, 224); font-weight:400;background:rgba(0, 0, 0, 0);">empty</span>(<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$nom</span>) &amp;&amp; !<span style="color:rgb(220, 198, 224); font-weight:400;background:rgba(0, 0, 0, 0);">empty</span>(<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$prenom</span>) &amp;&amp; !<span style="color:rgb(220, 198, 224); font-weight:400;background:rgba(0, 0, 0, 0);">empty</span>(<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$mail</span>) &amp;&amp; !<span style="color:rgb(220, 198, 224); font-weight:400;background:rgba(0, 0, 0, 0);">empty</span>(<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$mdp</span>)
+        &amp;&amp; <span class="hljs-title function_ invoke__">strlen</span>(<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$nom</span>) &lt;= <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">20</span> &amp;&amp; <span class="hljs-title function_ invoke__">strlen</span>(<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$prenom</span>) &lt;= <span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">20</span>
+        <span style="color:rgb(212, 208, 171); font-weight:400;background:rgba(0, 0, 0, 0);">//&amp;&amp; preg_match(&quot;/^[a-zA-Z &#x27;-çàâäéèêëîïôöù]+$/&quot;,$nom)</span>
+        <span style="color:rgb(212, 208, 171); font-weight:400;background:rgba(0, 0, 0, 0);">//&amp;&amp; preg_match(&quot;/^[a-zA-Z &#x27;-çàâäéèêëîïôöù]+$/&quot;,$prenom)</span>
+        &amp;&amp; <span class="hljs-title function_ invoke__">filter_var</span>(<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$mail</span>, FILTER_VALIDATE_EMAIL)){
+
+        <span style="color:rgb(220, 198, 224); font-weight:400;background:rgba(0, 0, 0, 0);">try</span>{
+            <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$conn</span> = <span class="hljs-title function_ invoke__">mysqli_connect</span>(<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$serveur</span>,<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$user</span>,<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$pass</span>,<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$dbname</span>);
+            <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$sql</span> = <span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;INSERT INTO etudiants (nom, prenom, mail, mdp) VALUES (&#x27;<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">$nom</span>&#x27;, &#x27;<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">$prenom</span>&#x27;, &#x27;<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">$mail</span>&#x27;, &#x27;<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">$mdp</span>&#x27;)&quot;</span>;
+            <span class="hljs-title function_ invoke__">mysqli_query</span>(<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$conn</span>, <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$sql</span>);
+
+            <span style="color:rgb(220, 198, 224); font-weight:400;background:rgba(0, 0, 0, 0);">echo</span> <span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;Dans le formulaire HTML, vous avez fourni les informations suivantes : &lt;br&gt;&quot;</span>;
+            <span style="color:rgb(220, 198, 224); font-weight:400;background:rgba(0, 0, 0, 0);">echo</span> <span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&#x27;Nom : &#x27;</span>.<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$_POST</span>[<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;nom&quot;</span>].<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&#x27;&lt;br&gt;&#x27;</span>;
+            <span style="color:rgb(220, 198, 224); font-weight:400;background:rgba(0, 0, 0, 0);">echo</span> <span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&#x27;Prénom : &#x27;</span>.<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$_POST</span>[<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;prenom&quot;</span>].<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&#x27;&lt;br&gt;&#x27;</span>;
+            <span style="color:rgb(220, 198, 224); font-weight:400;background:rgba(0, 0, 0, 0);">echo</span> <span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&#x27;Adresse Mail : &#x27;</span> .<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$_POST</span>[<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;mail&quot;</span>].<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&#x27;&lt;br&gt;&#x27;</span>;
+            <span style="color:rgb(220, 198, 224); font-weight:400;background:rgba(0, 0, 0, 0);">echo</span> <span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&#x27;Mot de passe : &#x27;</span> .<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$_POST</span>[<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;mdp&quot;</span>].<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&#x27;&lt;br&gt;&#x27;</span>;
+        }
+        <span style="color:rgb(220, 198, 224); font-weight:400;background:rgba(0, 0, 0, 0);">catch</span>(PDOException <span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$e</span>){
+            <span style="color:rgb(220, 198, 224); font-weight:400;background:rgba(0, 0, 0, 0);">echo</span> <span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&#x27;Erreur : &#x27;</span>.<span style="color:rgb(255, 160, 122); font-weight:400;background:rgba(0, 0, 0, 0);">$e</span>-&gt;<span class="hljs-title function_ invoke__">getMessage</span>();
+        }
+    }<span style="color:rgb(220, 198, 224); font-weight:400;background:rgba(0, 0, 0, 0);">else</span>{
+        <span class="hljs-title function_ invoke__">header</span>(<span style="color:rgb(171, 227, 56); font-weight:400;background:rgba(0, 0, 0, 0);">&quot;Location:s-form.html&quot;</span>);
+    }
+<span style="color:rgb(245, 171, 53); font-weight:400;background:rgba(0, 0, 0, 0);">?&gt;</span></code>
+</pre>
+
+
+
+
+
+			<!-- <div class="placeHolder_img" style="margin:-120px auto;"></div> -->
+
+		</article>
+	</section>
+</main>
+  
+</body>
+</html>
