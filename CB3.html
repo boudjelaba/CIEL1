@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,100' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="styleCB.css">
+	<title>Document</title>
+</head>
+<body>
+	<form class="credit-card">
+	  <div class="form-header">
+	    <h4 class="title">Détails de la carte bancaire</h4>
+	  </div>
+	 
+	  <div class="form-body">
+	    <!-- Card Number -->
+	    <input type="text" class="card-number" placeholder="Numéro de la carte">
+	 
+	    <!-- Date Field -->
+	    <div class="date-field">
+	      <div class="month">
+	        <select name="Month">
+	          <option value="janvier">Janvier</option>
+	          <option value="fevrier">Février</option>
+	          <option value="mars">Mars</option>
+	          <option value="avril">Avril</option>
+	          <option value="mai">Mai</option>
+	          <option value="juin">Juin</option>
+	          <option value="juillet">Juillet</option>
+	          <option value="aout">Août</option>
+	          <option value="septembre">Septembre</option>
+	          <option value="octobre">Octobre</option>
+	          <option value="novembre">Novembre</option>
+	          <option value="decembre">Décembre</option>
+	        </select>
+	      </div>
+	      <div class="year">
+	        <select name="Year">
+	          <option value="2024">2024</option>
+	          <option value="2025">2025</option>
+	          <option value="2026">2026</option>
+	          <option value="2027">2027</option>
+	          <option value="2028">2028</option>
+	          <option value="2029">2029</option>
+	          <option value="2030">2030</option>
+	          <option value="2031">2031</option>
+	          <option value="2032">2032</option>
+	        </select>
+	      </div>
+	    </div>
+	 
+	    <!-- Card Verification Field -->
+	    <div class="card-verification">
+	      <div class="cvv-input">
+	        <input type="text" placeholder="CVV">
+	      </div>
+	      <div class="cvv-details">
+	        <p>3 ou 4 chiffres nécessaires <br> inscrits au dos de la carte</p>
+	      </div>
+	    </div>
+	 
+	    <!-- Buttons -->
+	    <button type="submit" class="proceed-btn"><a href="#">Continuer</a></button>
+	    <button type="submit" class="paypal-btn"><a href="#">Payer avec</a></button>
+	  </div>
+	</form>
+</body>
+</html>
