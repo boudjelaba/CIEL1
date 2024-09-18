@@ -1,0 +1,361 @@
+html {
+    color: #252525;
+}
+main {
+	position: relative;
+	left: 50%;
+	transform: translate(-50%, 0);
+	max-width: 1280px;
+	padding: 0 18px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content:center;	
+}
+section {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content:center;
+	overflow: hidden;
+}
+article {
+	font-family: 'Open Sans', sans-serif;
+}
+h1 {
+	font-family: 'Poppins', sans-serif;;
+	text-align: center;
+	letter-spacing: 1.5px;
+	padding-top: 80px;
+}
+.h1-divider {
+	background-color: #252525;
+	margin-bottom: 37px;
+}
+article h3 {
+	font-weight: 800;
+	margin: 0;
+	line-height: 27px;
+}
+section p {
+	font-family: 'Open Sans', sans-serif;
+	color: #252525;
+	line-height: 25px;
+	margin-bottom: 40px;
+	text-align: justify;
+}
+section .intro {
+	font-weight: 300;
+}
+article p {
+	margin-top: 0;
+	margin-bottom: 50px;
+}
+article h3,
+section p {
+	font-size: 16px;
+}
+.placeHolder_img {
+	background-image: url('logo1.pdf');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: 100%;
+	margin-top: -500px;
+}
+
+
+/*** Formulaire (bleu clair) ***/
+
+form {
+	/* Centrer le formulaire */
+	margin: 0 auto;
+	width: 430px;
+	/* Contour du formulaire (optionnel) */
+	padding: 1em;
+	border: 1px solid #bbb;
+	border-radius: 1em;
+	background-color: lightskyblue;
+	margin-bottom: 2em;
+}
+.CIEL{
+    width: 100%;
+    margin: 1em;
+}
+.ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+form li + li {
+	margin-top: 1em;
+}
+label {
+	display: inline-block;
+	width: 110px;
+	text-align: right;
+	padding-right: 0.5em;
+}
+input {
+	font: 1em sans-serif;
+	/* Taille (largeur) des champs */
+	width: 250px;
+	box-sizing: border-box;
+	border: 1px solid seagreen;
+	padding: 3px 6px;
+	border-radius: 8px;
+}
+icon {
+	display: inline-block;
+	width: 20px;
+	padding: auto;
+	margin-left: 5px;
+	color: #33ab90;
+}
+input:focus {
+	/* Focus. */
+	border-color: darkred;
+	outline: none;
+}
+.button {
+	/* On aligne le bouton avec les champs texte. */
+	padding-left: 135px;
+	padding-top: 1em;
+}
+button {
+	margin-left: 1em;
+	width: 80px;
+	height: 36px;
+	background-color: #33a8ab;
+	border-radius: 10px;
+	border: none;
+	color: white;
+	font-weight: 800;
+	font-size: 14px;
+}
+button:hover {
+	background-color: #33679E;
+}
+
+
+
+/***  Tableau  ***/
+table {
+	width: 60%;
+	border-collapse: collapse;
+}
+
+td, th {
+	width: 4rem;
+	height: 2rem;
+	border: 1px solid #ccc;
+	text-align: center;
+}
+th {
+	background: lightblue;
+	border-color: white;
+}
+
+
+
+/*--------------------------
+     Requêtes Media 
+--------------------------*/
+
+/*    Téléphone    */
+@media only screen and (min-width: 320px) {
+	/* 320px */
+	h1 {
+		font-size: 42px;
+		line-height: 44px;
+		padding-top: 90px;
+	}
+	.h1-divider {
+		width: 222px;
+		height: 19px;
+	}
+	.placeHolder_img {
+		height: 320px;
+		margin: 0 0 50px 0;
+		padding-top: 120px;
+	}
+}
+@media only screen and (min-width: 667px) {
+    /* 667px */
+	article p {
+		column-count: 2;
+		column-gap: 42px;
+	}	
+}
+
+/*  Tablette  */
+@media only screen and (min-width: 768px) {
+    /* 768 */
+	main {
+		padding: 0 40px;
+	}
+	h1 {
+		font-size: 53.1px;
+		line-height: 0.98;
+		letter-spacing: 1.1px;
+		margin-bottom: 20px;
+	}
+	.h1-divider {
+		width: 339px;
+		height: 24px;
+		margin-bottom: 53px;
+	}
+	article p {
+		margin-bottom: 40px;
+	}
+	.placeHolder_img {
+		height: 344px;
+		margin: 0 0 40px 0;
+	}
+}
+
+/*  Ordinateur  */
+@media only screen and (min-width: 1024px) {
+    /* 1024 */
+	section {
+		width: 820px;
+	}
+	h1 {
+		font-size: 66.4px;
+		line-height: 0.95;
+		letter-spacing: 1.4px;
+		margin-bottom: 30px;
+	}
+	.h1-divider {
+		width: 486px;
+		margin-bottom: 38px;
+	}
+	.placeHolder_img {
+		height: 442px;
+	}	
+}
+@media only screen and (min-width: 1140px) {
+    /* 1140 */
+	section {
+		width: 1035px;
+	}
+	h1 {
+		font-size: 72px;
+		line-height: 0.98;
+	}
+	.h1-divider {
+		width: 480px;
+		margin-bottom: 45px;
+	}
+	.placeHolder_img {
+		height: 432px;
+	}	
+}
+
+
+
+/*** 1er Formulaire du document (bleu foncé) ***/
+
+.form {
+	background-color: #000039;
+	border-radius: 20px;
+	box-sizing: border-box;
+	height: 510px;
+	padding: 20px;
+	width: 420px;
+}
+.title {
+	color: #ddd;
+	font-family: sans-serif;
+	font-size: 36px;
+	font-weight: 600;
+	margin-top: 30px;
+}
+.subtitle {
+	color: #eee;
+	font-family: sans-serif;
+	font-size: 20px;
+	font-weight: 600;
+	margin-top: 10px;
+}
+.input-container {
+	height: 50px;
+	position: relative;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.ic1 {
+	margin-top: 40px;
+}
+.ic2 {
+	margin-top: 30px;
+}
+.input {
+	background-color: #838996;
+	border-radius: 12px;
+	border: 0;
+	box-sizing: border-box;
+	color: #eee;
+	font-size: 18px;
+	height: 100%;
+	outline: 0;
+	padding: 4px 20px 0;
+	width: 100%;
+}
+.cut {
+	background-color: #000039;
+	border-radius: 10px;
+	height: 20px;
+	left: 20px;
+	position: absolute;
+	top: -20px;
+	transform: translateY(0);
+	transition: transform 200ms;
+	width: 76px;
+}
+.cut-short {
+	width: 50px;
+}
+.input:focus ~ .cut,
+.input:not(:placeholder-shown) ~ .cut {
+	transform: translateY(8px);
+}
+.placeholder {
+	color: #e5e4e2;
+	font-family: sans-serif;
+	left: 20px;
+	text-align: left;
+	line-height: 14px;
+	pointer-events: none;
+	position: absolute;
+	transform-origin: 0 50%;
+	transition: transform 200ms, color 200ms;
+	top: 20px;
+}
+.input:focus ~ .placeholder,
+.input:not(:placeholder-shown) ~ .placeholder {
+	transform: translateY(-30px) translateX(10px) scale(0.75);
+}
+.input:not(:placeholder-shown) ~ .placeholder {
+	color: #808097;
+}
+.input:focus ~ .placeholder {
+	color: #e5e4e2;
+}
+.submit {
+	background-color: #367588;
+	border-radius: 12px;
+	border: 0;
+	box-sizing: border-box;
+	color: #eee;
+	cursor: pointer;
+	font-size: 24px;
+	height: 50px;
+	margin-top: 38px;
+	outline: 0;
+	text-align: center;
+	width: 60%;
+	margin-left: 20%;
+}
+.submit:active {
+	background-color: #4b6;
+}
