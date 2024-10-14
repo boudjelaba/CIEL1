@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="panier.CSS">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdn.materialdesignicons.com/3.6.95/css/materialdesignicons.min.css">
+	<title>Panier</title>
+</head>
+
+
+<body>
+  <div id="w">
+    <header id="title">
+      <h1>Panier</h1>
+    </header>
+    <div id="page">
+      <table id="cart">
+        <thead>
+          <tr>
+            <th class="first">Photo</th>
+            <th class="second">Qté</th>
+            <th class="third">Produit</th>
+            <th class="fourth">Total</th>
+            <th class="fifth">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- shopping cart contents -->
+          <tr class="productitm">
+            <td><img src="logo3.png" class="thumb"></td>
+            <td><input type="number" value="1" min="0" max="99" class="qtyinput"></td>
+            <td>Design Bundle Package</td>
+            <td>79.00 €</td>
+            <!-- <td><span class="remove"><i class="fa-solid fa-x"></i></span> </td>-->
+            <td><span class="remove">
+            	<button class="btn btn-delete">
+            	<span class="mdi mdi-delete mdi-24px"></span>
+            	<span class="mdi mdi-delete-empty mdi-24px"></span>
+            	<span>Delete</span>
+            	</button>
+            	</span>
+            </td>
+          </tr>
+          <tr class="productitm">
+            <td><img src="logo3.png" class="thumb"></td>
+            <td><input type="number" value="1" min="0" max="99" class="qtyinput"></td>
+            <td>Stuff on my Cat: The Book</td>
+            <td>8.95 €</td>
+            <!-- <td><span class="remove"><i class="fa-solid fa-x"></i></span></td> -->
+            <td><span class="remove">
+            	<button class="btn btn-delete">
+            	<span class="mdi mdi-delete mdi-24px"></span>
+            	<span class="mdi mdi-delete-empty mdi-24px"></span>
+            	<span>Delete</span>
+            	</button>
+            	</span>
+            </td>
+          </tr>
+          <tr class="productitm">
+            <td><img src="logo3.png" class="thumb"></td>
+            <td><input type="number" value="1" min="0" max="99" class="qtyinput"></td>
+            <td>SpongeBob's First 100 Episodes</td>
+            <td>75.00 €</td>
+            <!-- <td><span class="remove"><i class="fa-solid fa-x"></i></span></td> -->
+            <td><span class="remove">
+            	<button class="btn btn-delete">
+            	<span class="mdi mdi-delete mdi-24px"></span>
+            	<span class="mdi mdi-delete-empty mdi-24px"></span>
+            	<span>Delete</span>
+            	</button>
+            	</span>
+            </td>
+          </tr>
+          <tr class="productitm">
+            <td><img src="logo3.png" class="thumb"></td>
+            <td><input type="number" value="1" min="0" max="99" class="qtyinput"></td>
+            <td>JavaScript &amp; jQuery: The Missing Manual</td>
+            <td>27.50 €</td>
+            <!-- <td><span class="remove"><i class="fa-solid fa-x"></i></span></td> -->
+            <td><span class="remove">
+            	<button class="btn btn-delete">
+            	<span class="mdi mdi-delete mdi-24px"></span>
+            	<span class="mdi mdi-delete-empty mdi-24px"></span>
+            	<span>Delete</span>
+            	</button>
+            	</span>
+            </td>
+          </tr>
+          
+          <!-- tax + subtotal -->
+          <tr class="extracosts">
+            <td class="light">Frais de livraison &amp; Taxes</td>
+            <td colspan="2" class="light"></td>
+            <td>35.00 €</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr class="totalprice">
+            <td class="light">Total:</td>
+            <td colspan="2">&nbsp;</td>
+            <td colspan="2"><span class="thick">225.45 €</span></td>
+          </tr>
+          
+          <!-- checkout btn -->
+          <tr class="checkoutrow">
+            <td colspan="5" class="checkout"><button id="submitbtn">Commander</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+
+
+</html>
