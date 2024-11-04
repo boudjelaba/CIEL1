@@ -14,7 +14,14 @@ https://codepen.io/TurkAysenur/pen/wvaGqXW
 
 
 img {
-        filter: invert(1) hue-rotate(180deg) grayscale(50%);
+/*        filter: invert(1) hue-rotate(180deg);*/
+/*        filter: grayscale(90%);*/
+/*        filter: sepia(80%);*/
+      filter: grayscale(0.5);
+            -webkit-filter: grayscale(0.5);
+            -moz-filter: grayscale(0.5);
+            -o-filter: grayscale(0.5);
+            -ms-filter: grayscale(0.5);
       }
 
 ```
