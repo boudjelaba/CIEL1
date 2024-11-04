@@ -10,36 +10,11 @@ https://codepen.io/justinklemm/pen/kyMjjv
 
 https://codepen.io/TurkAysenur/pen/wvaGqXW
 
-```js
+```css
 
 
-var mode = document.getElementById("icone");
-
-let darkMode = localStorage.getItem('dark');
-
-const enableDarkMode = () => {
-  document.body.classList.add('dark');
-  localStorage.setItem('dark', 'enabled');
-  icone.classList = "fa-solid fa-sun";
-}
-
-const disableDarkMode = () => {
-  document.body.classList.remove('dark');
-  localStorage.setItem('dark', null);
-  icone.classList = "fa-solid fa-moon";
-}
-
-if (darkMode === 'enabled') {
-  enableDarkMode();
-}
-
-mode.addEventListener('click', () => {
-  darkMode = localStorage.getItem('dark');   
-  if (darkMode !== 'enabled') {
-    enableDarkMode(); 
-  } else {  
-    disableDarkMode(); 
-  }
-});
+img {
+        filter: invert(1) hue-rotate(180deg) grayscale(50%);
+      }
 
 ```
