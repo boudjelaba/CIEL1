@@ -1,0 +1,288 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --app-bg: #fff;
+  --table-border: #1a2131;
+  --table-header: #1a2131;
+  --app-content-secondary-color: #f3f6fd;
+  --app-content-main-color: #1f1c2e;
+  --action-color:#6495ed; /*#6291fd;/*#2869ff;*/
+  --action-color-hover: #00bfff;
+}
+
+
+
+.admin {
+  display: flex;
+  align-items: center;
+  background: none;
+  padding: 0 12px 0 0;
+  cursor: pointer;
+  margin: 0 2px;
+  text-decoration: none;
+}
+
+.btn-delete {
+  font-size: 16px;
+  color: red;
+}
+
+.btn-delete:hover {
+  color: #c40233;
+}
+
+.btn-edit {
+  font-size: 16px;
+  color: orange;
+}
+
+.btn-edit:hover {
+  color: #cc5500;
+}
+
+.btn-info {
+  font-size: 16px;
+  color: green;
+}
+
+.btn-info:hover {
+  color: #006400;
+}
+
+.btn-aj {
+  font-size: 16px;
+  color: green;
+  background: none;
+  border: none;
+}
+
+.btn-aj:hover {
+  color: #006400;
+}
+
+.btn-supp {
+  font-size: 16px;
+  color: red;
+  background: none;
+  border: none;
+}
+
+.btn-supp:hover {
+  color: #c40233;
+}
+
+.btn-back {
+  font-size: 12px;
+  color: #808000;
+}
+
+.btn-back:hover {
+  color: #556b2f;
+}
+
+
+
+input[type="number"] {
+  min-width: 45px;
+  padding: 3px 4px 3px 5px;
+  border: 2px solid #8E9618AA;
+  border-radius: 4px;
+  font-size: 13px;
+  color: darkblue;
+  margin-right: 6px;
+}
+
+
+/*.buttonp {
+  background-color: #ff8c00;
+  border-radius: .5rem;
+  color: white;
+  padding: 6px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 4px 0px;
+  cursor: pointer;
+  border: 0;
+}
+.buttonp:hover {
+  background: #cc5500;
+}
+
+.buttonp2 {
+  background-color: #008000;
+  border-radius: .5rem;
+  color: white;
+  padding: 6px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 4px 0px;
+  cursor: pointer;
+  border: 0;
+}
+.buttonp2:hover {
+  background: #6F800F;
+}
+
+.buttonp3 {
+  background-color: #cc0000;
+  border-radius: .5rem;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 4px 0px;
+  cursor: pointer;
+  border: 0;
+  float: right;
+}
+.buttonp3:hover {
+  background: #cc5010;
+}*/
+
+/*      */
+.bouton {
+  background-color: #ff8c00;
+  border-radius: .5rem;
+  color: white;
+  padding: 6px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 4px 0px;
+  cursor: pointer;
+  border: 0;
+}
+
+.maj {
+  background-color: #ff8c00;
+}
+
+.com {
+  background-color: #008000;
+}
+
+.vid {
+  background-color: #cc0000;
+  float: right;
+  padding: 10px 15px;
+}
+
+/*      */
+
+.message {
+  font-size: 20px;
+  font-weight: 600;
+  color: #cc0000;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+
+.total {
+  font-size: 18;
+  font-weight: 600;
+  color:  #0e6655 ;
+}
+
+
+
+
+
+
+
+
+/*++++++++++++++++++++++*/
+
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-weight: 600;
+}
+
+li {
+  float: left;
+  background-color: #f3f3f3;
+}
+
+li a {
+  display: block;
+  color: #666;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  border: 1px solid #f3f3f3;
+}
+
+li a:hover:not(.active) {
+  background-color: #ddd;
+}
+
+li a.active {
+  color: white;
+  background-color: #177245;
+  border: 1px solid #177245;
+}
+
+
+
+
+#tableau {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#tableau td, #tableau th {
+  border: 1px solid #ddd;
+  padding: 8px;
+/*  text-align: center;*/
+}
+
+#tableau tr:last-child {background-color: #b0c4de33;}
+
+#tableau tr:hover {background-color: #87ceeb33;}
+
+#tableau th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #367588;
+  color: white;
+}
+
+img {
+  width: 100px;
+}
+
+
+.notification-number {
+  background-color: #fa3e3e;
+  border-radius: 4px;
+  color: white;
+  padding: 1px 3px;
+  font-size: 12px;
+  font-weight: 600;
+  position: relative;
+  bottom: 8px;
+  left: 1px;
+}
