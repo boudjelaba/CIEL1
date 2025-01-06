@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document HTML</title>
+  <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+
+  <!-- -↓↓↓↓↓↓↓↓↓↓↓↓-2-2-2-↓↓↓↓↓↓↓↓↓↓↓↓- -->
+  <!-- <script src="script.js"></script> -->
+  <!-- -↑↑↑↑↑↑↑↑↑↑↑↑-2-2-2-↑↑↑↑↑↑↑↑↑↑↑↑- -->
+</head>
+
+<body>
+
+  <nav class="menu" id="nav">
+    <span class="nav-item active">
+      <a href="#">Accueil</a>
+    </span>
+    <span class="nav-item">
+      <a href="#">Page 1</a>
+    </span>
+    <span class="nav-item">
+      <a href="#">Page 2</a>
+    </span>
+    <span class="nav-item">
+      <a href="#">Page 3</a>
+    </span>
+  </nav>
+
+  <button id="telecharger"> Télécharger la version PDF</button>
+
+  <div id="contenu">
+
+    <h1>Impression HTML</h1>
+
+    <h2>Un tableau</h2>
+
+    <table id="tableau">
+      <tr>
+        <th>Référence</th>
+        <th>Produit</th>
+        <th>Prix</th>
+        <th>Action</th>
+      </tr>
+      <tr>
+        <td>RM1OX-PA</td>
+        <td>Marque X Ordinateur A</td>
+        <td>1290 &euro;</td>
+        <td><button class="btn">Acheter</button></td>
+      </tr>
+      <tr>
+        <td>RM2OX-PB</td>
+        <td>Marque X Ordinateur B</td>
+        <td>1050 &euro;</td>
+        <td><button class="btn">Acheter</button></td>
+      </tr>
+      <tr>
+        <td>RM3OY-PZ</td>
+        <td>Marque Y Ordinateur Z</td>
+        <td>1300 &euro;</td>
+        <td><button class="btn">Acheter</button></td>
+      </tr>
+      <tr>
+        <td>RM5OQ-PS</td>
+        <td>Marque K Ordinateur C</td>
+        <td>990 &euro;</td>
+        <td><button class="btn">Acheter</button></td>
+      </tr>
+      <tr>
+        <td>RM7OD-PE</td>
+        <td>Marque F Ordinateur G</td>
+        <td>1195 &euro;</td>
+        <td><button class="btn">Acheter</button></td>
+      </tr>
+      <tr>
+        <td>RM7OJ-PC</td>
+        <td>Marque J Ordinateur P</td>
+        <td>1290 &euro;</td>
+        <td><button class="btn">Acheter</button></td>
+      </tr>
+      <tr>
+        <td>RM9OV-PW</td>
+        <td>Marque V Ordinateur W</td>
+        <td>870 &euro;</td>
+        <td><button class="btn">Acheter</button></td>
+      </tr>
+      <tr>
+        <td>RM6ON-PM</td>
+        <td>Marque N Ordinateur M</td>
+        <td>1650 &euro;</td>
+        <td><button class="btn">Acheter</button></td>
+      </tr>
+    </table>
+
+    <h2>Une liste</h2>
+
+    <ul>
+      <li>Informatique</li>
+      <li>Réseaux</li>
+      <li>Anglais</li>
+      <li>ESLA</li>
+    </ul>
+
+    <div class="paragraphe">
+      <h2>Présentation de l'établissement</h2>
+      <p>
+        Charles Carnus est un Établissement d’Enseignement Supérieur qui propose des formations Bac + 2, Bac + 3 et Bac + 5 ainsi que des formations continues. Le parcours des étudiants se fait soit en format classique (cours et stage), soit en alternance.
+      </p>
+      <p>
+        Depuis près de 30 ans, de nombreux professionnels de Rodez et de l’Aveyron ont été formés à Charles Carnus.
+        On les retrouve dans des secteurs très variés tels que la banque, la gestion, l’assurance, le commerce, l’électrotechnique, l’informatique, la santé, le social, etc.
+      </p>
+      <p>
+        Proche du centre ville, Charles Carnus profite occasionnellement des possibilités qui lui sont offertes sur le plan culturel : visite d’expositions, du musée Soulages, rencontre avec des artistes ou un architecte d’intérieur, sortie au cinéma…<br>
+        De plus, soucieux de préparer l’insertion future des étudiants dans leur milieu professionnel, l’établissement accorde une importance particulière aux liens avec les entreprises.
+      </p>
+      <p>
+        Ainsi, les entreprises Bosch, Lactalis, Sodiélec, la SEFEE (Société d’études et fabrications électroniques et électriques) à Saint-Affrique, la centrale hydroélectrique de Montézic, le centre d’interconnexion haute tension de Rueyres, le Viaduc de Millau, la Station de traitement de l’eau, l’hôpital de Rodez sont autant de partenaires qui ouvrent volontiers leurs portes pour permettre aux étudiants de se familiariser avec le milieu professionnel.
+      </p>
+      <p>
+        Le Bureau Des Étudiants, autrement appelé B.D.E., est généralement composé par des étudiants ultra motivés pour apporter bonne humeur, fun et activités sur l’établissement. Ce club d’étudiants aime apporter un peu de bonheur dans la vie de leurs camarades en organisant soirées, sorties et autres événements en tous genres.
+      </p>
+      Source : <a href="https://www.carnus.fr/qui-sommes-nous/presentation/">Carnus</a>
+    </div>
+
+  </div>
+
+  <div class="footer-n">
+    <div class="social">
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="#"><i class="fa-brands fa-github"></i></a>
+    </div>
+    <p class="copyright">Prof. K.B. © 2025</p>
+  </div>
+
+
+
+</body>
+</html>
