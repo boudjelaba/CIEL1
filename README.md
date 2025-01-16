@@ -1,3 +1,108 @@
+```php
+<?php
+echo "Validation : adresse mail <br> <br>";
+$mail = "lycee(.carnus)@carn//us.fr";
+echo $mail;
+echo "<br>";
+$mail = filter_var($mail, FILTER_SANITIZE_EMAIL);
+echo $mail;
+echo "<br>";
+if(filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+    echo "{$mail}: Adresse mail valide"."<br>";
+}
+else{
+    echo "{$mail}: Adresse mail non valide"."<br>";
+}
+echo "<br>";
+echo "-------------------------------------";
+echo "<br>";
+?>
+
+
+<?php
+$mail1 = 'debut._-fin1@carnus.fr';
+$mail2 ='debut.fin@2carnus.fr';
+$mail3 ='debut.fin3@carnus,fr';
+$mail4 ='debut.fin@4carnus,fr';
+$mail5 ='debut.fin5@carnus.frfr';
+function validationMail($mail) {
+    $regex = "/^([a-zA-Z0-9\.\-\_]+@+[a-zA-Z]+(\.)+[a-zA-Z]{2,3})$/";
+    echo preg_match($regex, $mail) ? "Cette adresse mail  '$mail'  : est valide"."<br>" :"Cette adresse mail  '$mail'  : est non valide"."<br>";
+}
+validationMail($mail1);
+validationMail($mail2);
+validationMail($mail3);
+validationMail($mail4);
+validationMail($mail5);
+echo "<br>";
+echo "<br>";
+echo "**********************************************";
+echo "<br>";
+echo "<br>";
+?>
+
+<!--  -->
+<!--  -->
+<!--  -->
+
+<?php
+echo "Validation : mot de passe (1er programme ) <br><br>";
+
+function validationMDP($mdp) {
+    $regex = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/'; 
+    // Au moins une lettre minuscule.
+    // Au moins une lettre MAJUSCULE.
+    // Au moins un chiffre
+    // Au moins un caractère spécial.
+    // Longueur min 8 caractères.  
+    echo preg_match($regex, $mdp) ? "Ce mot de passe  '$mdp'  : est valide"."<br>" :"Ce mot de passe  '$mdp'  : est non valide"."<br>";
+}
+
+$mdp1 = "Test1@";
+$mdp2 = "test1@test2@";
+$mdp3 = "test1@Test2@";
+$mdp4 = "Test_Test@45";
+$mdp5 = "Ab12'.,;:!?$£+-*÷_àéèëê()[]{}#&@45";
+
+validationMDP($mdp1);
+validationMDP($mdp2);
+validationMDP($mdp3);
+validationMDP($mdp4);
+validationMDP($mdp5);
+?>
+
+<?php
+echo "<br>";
+echo "-------------------------------------";
+echo "<br> Validation : mot de passe (2ème programme) <br><br>";
+
+function validationMDP2($mdp2) {
+    $regex2 = '/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[\#\?\!\@\$\%\^\&\*\-]).{8,}$/';
+    // Au moins une lettre MAJUSCULE.
+    // Au moins une lettre minuscule.
+    // Au moins un chiffre
+    // Au moins un caractère spécial parmi # ? ! @ $ % ^ & * -
+    // Longueur min 8 caractères.
+    echo preg_match($regex2, $mdp2) ? "Ce mot de passe  '$mdp2'  : est valide"."<br>" :"Ce mot de passe  '$mdp2'  : est non valide"."<br>";
+}
+
+$mdp21 = "Test1@";
+$mdp22 = "test1@test2@";
+$mdp23 = "test1@Test2@";
+$mdp24 = "Testé)Test45";
+$mdp25 = "Ab12'.,;:!?$£+-*÷_àéèëê()[]{}#&@45";
+
+validationMDP2($mdp21);
+validationMDP2($mdp22);
+validationMDP2($mdp23);
+validationMDP2($mdp24);
+validationMDP2($mdp25);
+?>
+
+
+
+```
+
 # ⬇️ <cite><font color="(0,68,88)">CIEL-1</font></cite>
 
 <a href="https://carnus.fr"><img src="https://img.shields.io/badge/Carnus%20Enseignement Supérieur-F2A900?style=for-the-badge" /></a>
