@@ -1,102 +1,80 @@
 ```php
 <?php
-echo "Validation : adresse mail <br> <br>";
-$mail = "lycee(.carnus)@carn//us.fr";
-echo $mail;
-echo "<br>";
-$mail = filter_var($mail, FILTER_SANITIZE_EMAIL);
-echo $mail;
-echo "<br>";
-if(filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-    echo "{$mail}: Adresse mail valide"."<br>";
-}
-else{
-    echo "{$mail}: Adresse mail non valide"."<br>";
-}
-echo "<br>";
-echo "-------------------------------------";
-echo "<br>";
+  $nom = valid_donnees($_POST["nom"]);
+  $prenom = valid_donnees($_POST["prenom"]);
+  $mail = valid_donnees($_POST["mail"]);
+  $mdp = valid_donnees($_POST["mdp"]);
+
+  function valid_donnees($donnees){
+    // echo $donnees;
+    // echo "<br>";
+    $donnees = trim($donnees);
+    // echo $donnees;
+    // echo "<br>";
+    $donnees = stripslashes($donnees);
+    // echo $donnees;
+    // echo "<br>";
+    $donnees = htmlspecialchars($donnees);
+    // echo $donnees;
+    // echo "<br>";
+    return $donnees;
+  }
+
+  /*Si les champs nom, prenom, mail et mdp ne sont pas vides et si les donnees ont bien la forme attendue...*/
+  if (!empty($nom) && !empty($prenom) && !empty($mail) && !empty($mdp)
+    && strlen($nom) <= 20 && strlen($prenom) <= 20
+    //&& preg_match("/^[a-zA-Z '-çàâäéèêëîïôöù]+$/",$nom)
+    //&& preg_match("/^[a-zA-Z '-çàâäéèêëîïôöù]+$/",$prenom)
+    && filter_var($mail, FILTER_VALIDATE_EMAIL)){
+
+    try{
+      echo "Dans le formulaire, vous avez fourni les informations suivantes : <br>";
+      echo 'Nom : '.$_POST["nom"].'<br>';
+      echo 'Prénom : '.$_POST["prenom"].'<br>';
+      echo 'Adresse Mail : ' .$_POST["mail"].'<br>';
+      echo 'Mot de passe : ' .$_POST["mdp"].'<br><br><br>';
+    }
+    catch(PDOException $e){
+      echo 'Erreur : '.$e->getMessage();
+    }
+  } 
+  else {
+    echo "inscrption validée";
+  }
 ?>
 
-
-<?php
-$mail1 = 'debut._-fin1@carnus.fr';
-$mail2 ='debut.fin@2carnus.fr';
-$mail3 ='debut.fin3@carnus,fr';
-$mail4 ='debut.fin@4carnus,fr';
-$mail5 ='debut.fin5@carnus.frfr';
-function validationMail($mail) {
-    $regex = "/^([a-zA-Z0-9\.\-\_]+@+[a-zA-Z]+(\.)+[a-zA-Z]{2,3})$/";
-    echo preg_match($regex, $mail) ? "Cette adresse mail  '$mail'  : est valide"."<br>" :"Cette adresse mail  '$mail'  : est non valide"."<br>";
-}
-validationMail($mail1);
-validationMail($mail2);
-validationMail($mail3);
-validationMail($mail4);
-validationMail($mail5);
-echo "<br>";
-echo "<br>";
-echo "**********************************************";
-echo "<br>";
-echo "<br>";
-?>
-
-<!--  -->
-<!--  -->
-<!--  -->
-
-<?php
-echo "Validation : mot de passe (1er programme ) <br><br>";
-
-function validationMDP($mdp) {
-    $regex = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/'; 
-    // Au moins une lettre minuscule.
-    // Au moins une lettre MAJUSCULE.
-    // Au moins un chiffre
-    // Au moins un caractère spécial.
-    // Longueur min 8 caractères.  
-    echo preg_match($regex, $mdp) ? "Ce mot de passe  '$mdp'  : est valide"."<br>" :"Ce mot de passe  '$mdp'  : est non valide"."<br>";
-}
-
-$mdp1 = "Test1@";
-$mdp2 = "test1@test2@";
-$mdp3 = "test1@Test2@";
-$mdp4 = "Test_Test@45";
-$mdp5 = "Ab12'.,;:!?$£+-*÷_àéèëê()[]{}#&@45";
-
-validationMDP($mdp1);
-validationMDP($mdp2);
-validationMDP($mdp3);
-validationMDP($mdp4);
-validationMDP($mdp5);
-?>
-
-<?php
-echo "<br>";
-echo "-------------------------------------";
-echo "<br> Validation : mot de passe (2ème programme) <br><br>";
-
-function validationMDP2($mdp2) {
-    $regex2 = '/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[\#\?\!\@\$\%\^\&\*\-]).{8,}$/';
-    // Au moins une lettre MAJUSCULE.
-    // Au moins une lettre minuscule.
-    // Au moins un chiffre
-    // Au moins un caractère spécial parmi # ? ! @ $ % ^ & * -
-    // Longueur min 8 caractères.
-    echo preg_match($regex2, $mdp2) ? "Ce mot de passe  '$mdp2'  : est valide"."<br>" :"Ce mot de passe  '$mdp2'  : est non valide"."<br>";
-}
-
-$mdp21 = "Test1@";
-$mdp22 = "test1@test2@";
-$mdp23 = "test1@Test2@";
-$mdp24 = "Testé)Test45";
-$mdp25 = "Ab12'.,;:!?$£+-*÷_àéèëê()[]{}#&@45";
-
-validationMDP2($mdp21);
-validationMDP2($mdp22);
-validationMDP2($mdp23);
-validationMDP2($mdp24);
-validationMDP2($mdp25);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulaire</title>
+</head>
+<body>
+  <h2>Formulaire de création de compte</h2>
+  <form action="" method="post">
+    <ul>
+      <li>
+        <label for="name">Nom&nbsp;:</label>
+        <input type="text" id="nom" name="nom" required pattern="^[A-Za-z '-]+$" maxlength="20" />
+      </li>
+      <li>
+        <label for="name">Prénom : </label>
+        <input type="text" id="prenom" name="prenom" />
+      </li>
+      <li>
+        <label for="name">Mail :</label>
+        <input type="email" id="mail" name="mail" required />
+      </li>
+      <li>
+        <label for="name">Mot de passe :</label>
+        <input type="password" id="mdp" name="mdp" required />
+      </li>
+    </ul>
+    <button type="submit">Valider</button>
+  </form>
+</body>
+</html>
 ?>
 
 
