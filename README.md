@@ -1,80 +1,36 @@
 ```php
 <?php
-  $nom = valid_donnees($_POST["nom"]);
-  $prenom = valid_donnees($_POST["prenom"]);
-  $mail = valid_donnees($_POST["mail"]);
-  $mdp = valid_donnees($_POST["mdp"]);
+	require('config.php');
+	session_start();
 
-  function valid_donnees($donnees){
-    // echo $donnees;
-    // echo "<br>";
-    $donnees = trim($donnees);
-    // echo $donnees;
-    // echo "<br>";
-    $donnees = stripslashes($donnees);
-    // echo $donnees;
-    // echo "<br>";
-    $donnees = htmlspecialchars($donnees);
-    // echo $donnees;
-    // echo "<br>";
-    return $donnees;
-  }
+	if(isset($_POST['submit'])){
+	   $nom = trim($_POST["nom"]);
+	   $nom = stripslashes($nom);
+	   $nom = mysqli_real_escape_string($connection, $nom);
 
-  /*Si les champs nom, prenom, mail et mdp ne sont pas vides et si les donnees ont bien la forme attendue...*/
-  if (!empty($nom) && !empty($prenom) && !empty($mail) && !empty($mdp)
-    && strlen($nom) <= 20 && strlen($prenom) <= 20
-    //&& preg_match("/^[a-zA-Z '-çàâäéèêëîïôöù]+$/",$nom)
-    //&& preg_match("/^[a-zA-Z '-çàâäéèêëîïôöù]+$/",$prenom)
-    && filter_var($mail, FILTER_VALIDATE_EMAIL)){
+	   $prenom = trim($_POST["prenom"]);
+	   $prenom = stripslashes($prenom);
+	   $prenom = mysqli_real_escape_string($connection, $prenom);
 
-    try{
-      echo "Dans le formulaire, vous avez fourni les informations suivantes : <br>";
-      echo 'Nom : '.$_POST["nom"].'<br>';
-      echo 'Prénom : '.$_POST["prenom"].'<br>';
-      echo 'Adresse Mail : ' .$_POST["mail"].'<br>';
-      echo 'Mot de passe : ' .$_POST["mdp"].'<br><br><br>';
-    }
-    catch(PDOException $e){
-      echo 'Erreur : '.$e->getMessage();
-    }
-  } 
-  else {
-    echo "inscrption validée";
-  }
-?>
+	   $mail = trim($_POST["mail"]);
+	   $mail = stripslashes($mail);
+	   $mail = mysqli_real_escape_string($connection, $mail);
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulaire</title>
-</head>
-<body>
-  <h2>Formulaire de création de compte</h2>
-  <form action="" method="post">
-    <ul>
-      <li>
-        <label for="name">Nom&nbsp;:</label>
-        <input type="text" id="nom" name="nom" required pattern="^[A-Za-z '-]+$" maxlength="20" />
-      </li>
-      <li>
-        <label for="name">Prénom : </label>
-        <input type="text" id="prenom" name="prenom" />
-      </li>
-      <li>
-        <label for="name">Mail :</label>
-        <input type="email" id="mail" name="mail" required />
-      </li>
-      <li>
-        <label for="name">Mot de passe :</label>
-        <input type="password" id="mdp" name="mdp" required />
-      </li>
-    </ul>
-    <button type="submit">Valider</button>
-  </form>
-</body>
-</html>
+	   $mdp = trim($_POST["mdp"]);
+	   $mdp = stripslashes($mdp);
+	   $mdp = mysqli_real_escape_string($connection, md5($mdp));
+
+
+	   $select = " SELECT * FROM register WHERE mail = '$mail' && mdp = '$mdp' ";
+	   $result = mysqli_query($connection, $select);
+	   if(mysqli_num_rows($result) > 0){
+	      $error[] = 'Ce compte existe déjà!';
+	   }else{
+	   	$insert = "INSERT INTO register(nom, prenom, mail, mdp) VALUES('$nom','$prenom','$mail','$mdp')";
+	   	mysqli_query($connection, $insert);
+	   	header('location:A_login.php');
+	    }
+	};
 ?>
 
 
