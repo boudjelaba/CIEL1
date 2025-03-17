@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2>Liste des produits</h2>
+    <ul id="items">
+
+    <script>
+      var obj = { 
+        "ordinateur": {
+          "listeProduit": [{
+            "produit": {
+              "id": "1",
+              "nom": "DELL",
+              "description": "<p>Léger</p>",
+              "categorie": "Gamer",
+              "disponibilite": "En Stock",
+              "processeur": {
+                "nom": "Intel",
+                "valeur": "I9"
+              }
+            },
+            "quantite": 10,
+            "prix": "530.00€"
+          }, {
+            "produit": {
+              "id": "2",
+              "nom": "HP",
+              "description": "<p>Windows 11</p>",
+              "categorie": "portable",
+              "disponibilite": "Stock limité",
+              "processeur": {
+                "nom": "AMD",
+                "value": "A1"
+              }
+            },
+            "quantite": 1,
+            "prix": "490.00€"
+          }, {
+            "produit": {
+              "id": "3",
+              "nom": "APPLE",
+              "description": "MacBook Pro",
+              "categorie": "portable",
+              "disponibilite": "En Stock"
+            },
+            "quantite": 6,
+            "prix": "860.00€"
+          }]
+        }
+      }
+
+      var items = document.getElementById("items");
+
+      obj.ordinateur.listeProduit.forEach(function(element) {
+        items.insertAdjacentHTML( 'beforeend',"<li>" + element.produit.nom + " : " + element.prix+ " </li>");
+      });
+    </script>
+
+</body>
+</html> 

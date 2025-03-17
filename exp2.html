@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<style type="text/css">
+	 .div-conatiner {
+	 	background-color: #313131;
+	 	margin: 10px;
+	 	padding: 5px;
+	 	width: 50%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.div-conatiner p {
+		margin: 5px;
+		color: #eeeeee;
+	}
+	</style>
+</head>
+
+<body>
+
+  <script>
+    var data = [{
+      "nom": "Nom1",
+      "prenom": "Prenom1",
+      "classe": "CIEL-1",
+      "promotion": 2026,
+      "specialite": "Informatique",
+    },
+    {
+      "nom": "Nom2",
+      "prenom": "Prenom2",
+      "classe": "CIEL-2",
+      "promotion": 2025,
+      "specialite": "Réseaux",
+    },
+    ]
+
+    var htmlText = data.map(function(o){
+      return `
+      <div class="div-conatiner">
+      <p> Nom : ${o.nom}</p>
+      <p> Prénom : ${o.prenom}</p>
+      <p> Classe : ${o.classe}</p>
+      <p> Promotion : ${o.promotion}</p>
+      <p> Spécialité : ${o.specialite}</p>
+      </div>
+      `;
+    });
+
+    $('body').append(htmlText);
+  </script>
+
+</body>
+</html> 
