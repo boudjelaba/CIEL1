@@ -1,0 +1,4 @@
+{"id": 1, "nom": "Nom1", "age": 19, "mail": "nom1@carnus.fr"}
+{"id": 2, "nom": "Nom2", "age": 20, "mail": "nom2@carnus.fr"}
+{"id": 3, "nom": "Nom3", "age": 23, "mail": "nom3@carnus.fr"}
+{"id": 4, "nom": "Nom4", "age": 18, "mail": "nom4@carnus.fr"}

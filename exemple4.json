@@ -1,0 +1,23 @@
+{
+  "nom": "Carnus",
+  "apprentissage": false,
+  "matières": ["Anglais", "Physique", "Informatique"],
+
+  "age": 19,
+
+  "addresse": {
+    "ecole": null,
+    "maison": ["Rodez", "France"]
+  },
+
+  "projets": [
+    {
+      "titre": "Projet1",
+      "tâches": ["tâche1-1", "tâche1-2", "tâche1-3"]
+    },
+    {
+      "titre": "Projet2",
+      "tâches": ["tâche2-1", "tâche2-2"]
+    }
+  ]
+}
