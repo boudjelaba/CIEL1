@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Thème Light/Dark</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    :root {
+      --primary: #7380ec;
+      --light: #f6f6f9;
+      --dark: #1e293b;
+      --text-light: #363949;
+      --text-dark: #e0e7ff;
+      --white: #fff;
+    }
+
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      background: var(--light);
+      color: var(--text-light);
+      transition: 0.3s;
+    }
+
+    body.dark {
+      background: var(--dark);
+      color: var(--text-dark);
+    }
+
+    header, footer {
+      text-align: center;
+      padding: 1em;
+      background: inherit;
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      padding: 1em;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: inherit;
+      padding: 0.5em 1em;
+      border-radius: 5px;
+    }
+
+    nav a:hover, nav a.active {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .theme-toggle {
+      margin-left: auto;
+      display: flex;
+      cursor: pointer;
+      background: rgba(0,0,0,0.1);
+      border-radius: 5px;
+      padding: 0.3em;
+    }
+
+    .theme-toggle span {
+      padding: 0.3em;
+    }
+
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 1em;
+    }
+
+    .left, .right {
+      background: var(--white);
+      padding: 1em;
+      border-radius: 5px;
+      flex: 1;
+    }
+
+    body.dark .left,
+    body.dark .right {
+      background: #202528;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1em;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.5em;
+      text-align: center;
+    }
+
+    img.circular {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    footer {
+      background: #24262b;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>BTS CIEL</h1>
+    <p>Développement Web : HTML - CSS</p>
+  </header>
+
+  <nav>
+    <a href="#" class="active"><i class="fa fa-home"></i> Accueil</a>
+    <a href="#"><i class="fa fa-circle-info"></i> Info</a>
+    <a href="#"><i class="fa fa-sun"></i> Météo</a>
+    <div class="theme-toggle" onclick="toggleTheme()">
+      <i class="fa-solid fa-circle-half-stroke"></i>
+    </div>
+  </nav>
+
+  <main>
+    <section class="left">
+      <h2>Informatique</h2>
+      <p>Programmation et algorithmique...</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Nom</th>
+            <th>Email</th>
+            <th>Téléphone</th>
+            <th>Commentaires</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><img class="circular" src="./img/Ard.png" alt="Arduino"></td>
+            <td>Ide Arduino</td>
+            <td>arduino@arduino.cc</td>
+            <td>01 02 03 04 05</td>
+            <td>Module Arduino microcontrôleur Atmel AVR.</td>
+          </tr>
+          <tr>
+            <td><img class="circular" src="./img/logo1.png" alt="Logo"></td>
+            <td>Charles Carnus</td>
+            <td>lycee@carnus.fr</td>
+            <td>05 65 73 37 00</td>
+            <td>Formations adaptées secteurs divers.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <aside class="right">
+      <h3>Python</h3>
+      <p>Langage interprété très puissant pour calcul scientifique.</p>
+    </aside>
+  </main>
+
+  <footer>
+    <p>Carnus Enseignement Supérieur, 12000 Rodez</p>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+    }
+  </script>
+</body>
+</html>
