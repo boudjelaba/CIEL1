@@ -5,3 +5,16 @@
 
 
 ---
+
+```javascript
+function generateQR(id, text) {
+    const qr = new QRCodeStyling({
+      width: 220,
+      height: 220,
+      data: text,
+      margin: 5
+    });
+    qr.append(document.getElementById(id));
+  }
+```
+
