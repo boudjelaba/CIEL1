@@ -8,7 +8,9 @@
 
 ```javascript
 document.addEventListener("DOMContentLoaded", function () {
-function generateQR(id, text) {
+
+  /* Fonction QR Code (UTF-8) */
+  function generateQR(id, text) {
     const qr = new QRCodeStyling({
       width: 220,
       height: 220,
