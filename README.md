@@ -7,6 +7,7 @@
 ---
 
 ```javascript
+document.addEventListener("DOMContentLoaded", function () {
 function generateQR(id, text) {
     const qr = new QRCodeStyling({
       width: 220,
@@ -16,5 +17,6 @@ function generateQR(id, text) {
     });
     qr.append(document.getElementById(id));
   }
+});
 ```
 
