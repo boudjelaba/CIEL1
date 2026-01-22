@@ -105,56 +105,10 @@ document.addEventListener("DOMContentLoaded", function () {
   /* === QR Codes === */
   generateQR("qr1", "TP CIEL – QR Code simple");
 
-  generateQR("qr2",
-"Ce QR Code contient un paragraphe de texte.\nIl peut inclure des accents, des retours à la ligne et des caractères spéciaux."
-  );
 
-  generateQR("qr3", "https://www.education.gouv.fr");
 
-  generateQR("qr4",
-`📦 Produit : Raspberry Pi 5
-💻 Processeur ARM
-💰 Prix : 89 €
-🏫 BTS CIEL`
-  );
 
-  generateQR("qr5",
-`BEGIN:VCARD
-VERSION:3.0
-FN:Charles Dupont
-ORG:Lycée CIEL
-TEL:0565733700
-EMAIL:contact@lycee.fr
-END:VCARD`
-  );
 
-  generateQR("qr6",
-`BEGIN:VCALENDAR
-VERSION:2.0
-BEGIN:VEVENT
-SUMMARY:Journée Portes ouvertes
-DTSTART:20260205T090000
-DTEND:20260205T170000
-LOCATION:Lycée CIEL
-DESCRIPTION:Découverte des formations BTS
-END:VEVENT
-END:VCALENDAR`
-  );
-
-  /* === Codes-barres === */
-  JsBarcode("#barcode128", "TP2026CIEL", {
-    format: "CODE128",
-    width: 2,
-    height: 80,
-    displayValue: true
-  });
-
-  JsBarcode("#barcodeEAN", "123456789012", {
-    format: "EAN13",
-    width: 2,
-    height: 80,
-    displayValue: true
-  });
 
 });
 </script>
