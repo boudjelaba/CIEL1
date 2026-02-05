@@ -48,3 +48,21 @@ except ValueError as ve:
 except Exception as e:
     print(f"Une erreur est survenue : {e}")
 ```
+
+---
+
+```python
+import qrcode
+qr = qrcode.QRCode(
+    version=1,
+    error_correction=qrcode.constants.ERROR_CORRECT_L,
+    box_size=10,
+    border=4,
+)
+qr.add_data(" Journée Portes Ouvertes : Samedi 31 janvier 2026, 9h00-16h30"
+            "\n Lieu : Carnus Enseignement Supérieur, Avenue de Bourran, Rodez"
+            "\n Nos formations : BTS CIEL, BTS ERA, BTS GPME, DTS IMRT.")
+qr.make(fit=True)
+img = qr.make_image(fill_color="rgb(0,68,88)", back_color="#ffffe0")
+img.save("qr_p2.png")
+```
