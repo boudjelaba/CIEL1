@@ -6,6 +6,42 @@
 ---
 
 ```python
+import os
+
+BASE_DIR = "TP_Meteo_Python"
+
+files = [
+    "meteo_actuelle.py",
+    "meteo_actuelle_V2.py",
+    "meteo_code.py",
+    "meteo_previsions.py",
+    "meteo_qrcode.py",
+    "README.md"
+]
+
+folders = [
+    "images"
+]
+
+# Création du dossier principal
+os.makedirs(BASE_DIR, exist_ok=True)
+
+# Création des sous-dossiers
+for folder in folders:
+    path = os.path.join(BASE_DIR, folder)
+    os.makedirs(path, exist_ok=True)
+
+# Création des fichiers
+for file in files:
+    path = os.path.join(BASE_DIR, file)
+    if not os.path.exists(path):
+        with open(path, "w", encoding="utf-8") as f:
+            f.write("")
+```
+
+---
+
+```python
 import barcode
 from barcode.writer import ImageWriter
 
