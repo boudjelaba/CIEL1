@@ -54,8 +54,8 @@ QRimg = QRcode.make_image(
 
 # Calcul de la position pour centrer le logo dans le QR code
 pos = (
-    (QRimg.size[0] - logo.size[0]) // 2,
-    (QRimg.size[1] - logo.size[1]) // 2
+    (QRimg.size[0] - logo.size[0]) // 3,
+    (QRimg.size[1] - logo.size[1]) // 4
 )
 
 # Insertion du logo au centre du QR code
