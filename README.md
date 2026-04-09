@@ -57,7 +57,47 @@ async function fetchData() {{
         }}
     }});
 }}
-```
 
 fetchData();
 setInterval(fetchData, 5000);
+```
+
+```python
+import os
+import json
+import random
+from datetime import datetime
+import shutil
+
+# -------- IDENTITE --------
+name = input("Nom ou identifiant : ").strip()
+seed = sum(ord(c) for c in name)
+random.seed(seed)
+
+# -------- CONFIG --------
+machines = ["alpha", "beta", "gamma", "delta"]
+machine_count = random.randint(3, 4)
+
+temp_field = random.choice(["temperature", "temp", "t"])
+cpu_field = random.choice(["cpu", "cpu_load", "usage"])
+
+# -------- CREATION DOSSIERS --------
+base_dir = f"projet_{name}"
+for sub in ["backend", "frontend", "data"]:
+    os.makedirs(os.path.join(base_dir, sub), exist_ok=True)
+
+# -------- GENERATION JSON --------
+data_list = []
+for _ in range(machine_count):
+    data_list.append({
+        "machine": random.choice(machines),
+        temp_field: random.randint(20, 80),
+        cpu_field: random.randint(0, 100),
+        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    })
+
+json_file = os.path.join(base_dir, "data", f"data_{name}.json")
+with open(json_file, "w") as f:
+    json.dump(data_list, f, indent=4)
+```
+
