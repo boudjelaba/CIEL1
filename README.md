@@ -91,7 +91,7 @@ Dans chacun de ces sélecteurs, on peut utiliser **toutes les propriétés CSS**
 
 ## 1\. Background uni
 
-```
+```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -114,7 +114,7 @@ Dans chacun de ces sélecteurs, on peut utiliser **toutes les propriétés CSS**
 
 ## 2\. Background dégradé
 
-```
+```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -145,7 +145,7 @@ body {
 
 ## 3\. Background avec une image
 
-```
+```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
