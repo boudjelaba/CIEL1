@@ -1,28 +1,37 @@
+
 ```html
 <form action="#" method="post">
 
 <div>
     <label for="prenom">Prénom :</label>
+
     <input type="text"
            id="prenom"
            name="prenom"
+           required
+           maxlength="20"
            placeholder="Charles">
 </div>
 
 <div>
     <label for="mail">Adresse mail :</label>
+
     <input type="email"
            id="mail"
            name="mail"
+           required
            placeholder="lycee@carnus.fr">
 </div>
 
 <div>
     <label for="age">Âge :</label>
+
     <input type="number"
            id="age"
            name="age"
-           placeholder="19">
+           min="15"
+           max="35"
+           required>
 </div>
 
 <fieldset>
@@ -32,7 +41,7 @@
            id="un"
            name="annee"
            value="1"
-           checked>
+           required>
 
     <label for="un">1ère année</label>
 
@@ -49,13 +58,14 @@
 
     <select id="dep" name="dep">
         <option value="aveyron">Aveyron</option>
-        <option value="tarn" selected>Tarn</option>
+        <option value="tarn">Tarn</option>
         <option value="lot">Lot</option>
         <option value="autre">Autre</option>
     </select>
 </div>
 
 <button type="submit">Envoyer</button>
+<button type="reset">Réinitialiser</button>
 
 </form>
 ```
