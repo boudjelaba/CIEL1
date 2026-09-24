@@ -1,3 +1,65 @@
+```html
+<form action="#" method="post">
+
+<div>
+    <label for="prenom">Prénom :</label>
+    <input type="text"
+           id="prenom"
+           name="prenom"
+           placeholder="Charles">
+</div>
+
+<div>
+    <label for="mail">Adresse mail :</label>
+    <input type="email"
+           id="mail"
+           name="mail"
+           placeholder="lycee@carnus.fr">
+</div>
+
+<div>
+    <label for="age">Âge :</label>
+    <input type="number"
+           id="age"
+           name="age"
+           placeholder="19">
+</div>
+
+<fieldset>
+    <legend>Année d'étude</legend>
+
+    <input type="radio"
+           id="un"
+           name="annee"
+           value="1"
+           checked>
+
+    <label for="un">1ère année</label>
+
+    <input type="radio"
+           id="deux"
+           name="annee"
+           value="2">
+
+    <label for="deux">2ème année</label>
+</fieldset>
+
+<div>
+    <label for="dep">Département de résidence :</label>
+
+    <select id="dep" name="dep">
+        <option value="aveyron">Aveyron</option>
+        <option value="tarn" selected>Tarn</option>
+        <option value="lot">Lot</option>
+        <option value="autre">Autre</option>
+    </select>
+</div>
+
+<button type="submit">Envoyer</button>
+
+</form>
+```
+
 
 ## Rôle des sélecteurs CSS `*`, `html` et `body`
 
