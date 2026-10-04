@@ -1,0 +1,23 @@
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# JavaScript
+node_modules/
+
+# Build / distribution
+dist/
+build/
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
