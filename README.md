@@ -22,13 +22,18 @@ Supports et ressources consacrés à la programmation en Python.
 
 Travaux pratiques et ressources liés à la co-animation d'anglais (professionnel), notamment autour de situations de dépannage et de communication avec un client.
 
+### 05 — Programmation PHP / BDD
+
+Supports et ressources consacrés à la programmation en PHP et aux bases de données (BDD).
+
 ## Organisation du dépôt
 
 ```text
 .
 ├── 01_HTML_CSS/
 ├── 02_Python/
-└── 04_Anglais/
+├── 04_Anglais/
+└── 05_Programmation_PHP_BDD/
 ```
 
 Le contenu de ce dépôt est **évolutif** et peut varier au fil de la formation.
