@@ -2,6 +2,19 @@
 
 ---
 
+```php
+<?php
+session_start();
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+$_SESSION["visites"] = 0;
+} else {
+$_SESSION["visites"] = ($_SESSION["visites"] ?? 0) + 1;
+}
+?>
+<p>Vous avez visité cette page <?= (int) $_SESSION["visites"] ?> fois.</p>
+<form method="post"><button type="submit">Réinitialiser</button></form>
+```
+
 # Ressources de formation
 
 Ce dépôt regroupe les ressources utilisées dans le cadre de la formation : supports de cours, exercices, travaux pratiques et documents complémentaires.
