@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Tableau de bord Flask — TP5</title>
+</head>
+<body>
+    <h1>Tableau de bord de l'application</h1>
+
+    <h2>État des services</h2>
+    <p>Application : {{ service_status }}</p>
+    <p>Base de données : {{ database_status }}</p>
+
+    <h2>Étudiants ({{ students|length }})</h2>
+    {% if students %}
+    <table>
+        <thead><tr><th>Nom</th><th>Adresse électronique</th></tr></thead>
+        <tbody>
+        {% for student in students %}
+            <tr><td>{{ student.name }}</td><td>{{ student.email }}</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>Aucun étudiant enregistré.</p>
+    {% endif %}
+
+    <h2>Dernières entrées du journal</h2>
+    {% if log_lines %}
+    <ul>
+        {% for line in log_lines %}
+        <li>{{ line }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>Aucune entrée de journal.</p>
+    {% endif %}
+
+    <h2>Routes API conservées</h2>
+    <ul>
+        <li><a href="/api/status">État JSON</a></li>
+        <li><a href="/api/user/eleve">Profil JSON</a></li>
+        <li><a href="/students">Liste JSON des étudiants</a></li>
+    </ul>
+</body>
+</html>

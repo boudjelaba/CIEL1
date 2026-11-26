@@ -1,0 +1,24 @@
+2026-03-05 07:27:27,589 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.17.0.2:5000
+2026-03-05 07:27:27,590 - [33mPress CTRL+C to quit[0m
+2026-03-05 07:27:48,398 - Route appelée
+2026-03-05 07:27:48,401 - 192.168.65.1 - - [05/Mar/2026 07:27:48] "GET / HTTP/1.1" 200 -
+2026-03-05 07:27:50,416 - Route appelée
+2026-03-05 07:27:50,417 - 192.168.65.1 - - [05/Mar/2026 07:27:50] "GET / HTTP/1.1" 200 -
+2026-03-05 07:27:51,673 - Route appelée
+2026-03-05 07:27:51,673 - 192.168.65.1 - - [05/Mar/2026 07:27:51] "GET / HTTP/1.1" 200 -
+2026-03-05 07:27:53,110 - Route appelée
+2026-03-05 07:27:53,110 - 192.168.65.1 - - [05/Mar/2026 07:27:53] "GET / HTTP/1.1" 200 -
+2026-03-05 07:50:42,395 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.17.0.2:5000
+2026-03-05 07:50:42,395 - [33mPress CTRL+C to quit[0m
+2026-03-05 07:50:50,103 - Route appelée
+2026-03-05 07:50:50,104 - 192.168.65.1 - - [05/Mar/2026 07:50:50] "GET / HTTP/1.1" 200 -
+2026-03-05 07:50:53,065 - Route appelée
+2026-03-05 07:50:53,068 - 192.168.65.1 - - [05/Mar/2026 07:50:53] "GET / HTTP/1.1" 200 -
+2026-03-05 07:50:54,781 - Route appelée
+2026-03-05 07:50:54,782 - 192.168.65.1 - - [05/Mar/2026 07:50:54] "GET / HTTP/1.1" 200 -
